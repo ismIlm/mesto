@@ -2,9 +2,8 @@
 @import url(./__avatar/profile__avatar.css);
 @import url(./__title/profile__title.css);
 @import url(./__subtitle/profile__subtitle.css);
-@import url(./__add-button/profile__add-button.css);
 @import url(./__info/profile__info.css);
-@import url(./__name?/profile__name.css);
+@import url(./__name/profile__name.css);
 
 
 .profile {
@@ -14,3 +13,18 @@
     justify-content: space-between;
     align-items: center;
 }
+@media (min-width: 320px) and (max-width: 567px){
+    .profile {
+        height: 286px;
+        margin: 42px 19px 0;
+
+        flex-direction: column;
+    }
+} 
+
+/*@media (min-width: 320px) and (max-width: 567px) {
+    .profile {
+        height: 120px;
+        margin: 40px 199px 0;
+    }
+}*/

@@ -4,9 +4,9 @@
     /*display: flex;
     justify-content: space-between;*/
     height: 74px;
-    margin: 55px 199px 0;  
+    margin: 45px 199px 0;  
     border-bottom: 1px solid #A5A5A5;
-    opacity: 0,7;
+    opacity: 0.7;
 }
 /*
 @media (min-width : 768px) and (max-width: 1024px) {
@@ -22,3 +22,9 @@
         max-height: 52px;
     }
 }*/
+@media (min-width: 320px) and (max-width: 567px){
+    .header {
+        height: 56px;
+        margin: 28px 19px 0;
+    }
+} 

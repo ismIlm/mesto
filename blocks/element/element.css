@@ -1,0 +1,14 @@
+@import url(./__image/element__image.css);
+
+.element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 282px;
+}
+
+@media (min-width: 320px) and (max-width: 567px){
+    .element {
+    width: 100%;
+    }
+} 

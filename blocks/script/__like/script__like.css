@@ -1,0 +1,14 @@
+.script__like {
+  border: none;
+
+  background: url(https://code.s3.yandex.net/web-code/dom/heart.svg) center no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  right: 20px;
+  opacity: 0.5;
+  transition: 0.3s;
+  color: #000000;
+}

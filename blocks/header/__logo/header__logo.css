@@ -14,4 +14,9 @@
 }
 */
 
-
+@media (min-width: 320px) and (max-width: 567px){
+    .header__logo {
+        width: 103px;
+        height: 24px;
+    }
+} 

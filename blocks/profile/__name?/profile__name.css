@@ -1,7 +1,0 @@
-.profile__name {
-    list-style: none;
-    padding: 0;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0,auto));
-    grid-column-gap: 20px;
-}
