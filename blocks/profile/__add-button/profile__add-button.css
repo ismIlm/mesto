@@ -1,0 +1,7 @@
+
+.profile__add-button {
+    color: #fff; /* цвет текста */
+    text-decoration: none; /* убирать подчёркивание у ссылок */
+    user-select: none; /* убирать выделение текста */
+    background: #000000
+  } 

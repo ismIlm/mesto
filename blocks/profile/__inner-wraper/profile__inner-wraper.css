@@ -1,0 +1,23 @@
+.profile__inner-wraper {
+    min-height: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #ffffff;
+}
+/*
+@media (max-width: 760px) {
+    .header__inner-wrapper  {
+        width: 100%;
+    }
+}
+
+@media (max-width: 521px) {
+    .header__inner-wrapper {
+        grid-column-gap: 8px;
+        grid-row-gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 20px;
+    }
+}*/
