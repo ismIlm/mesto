@@ -1,4 +1,4 @@
-.profile__inner-wraper {
+.profile__main {
     height: 120px;
     display: flex;
     justify-content: space-between;
@@ -7,7 +7,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 567px){
-    .profile__inner-wraper  {
+    .profile__main  {
         width: 100%;
         flex-direction: column;
        
