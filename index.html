@@ -9,7 +9,7 @@
 </head>
 
 <body class="index-body">
-    
+
     <div class="page">
         <header class="header">
             <img src="./images/header/logo.svg" class="header__logo" alt="логотип MESTO">
@@ -72,7 +72,15 @@
                     </div>
                 </div>
             </section>
-            <section class="popup"></section>
+            <section class="popup">
+                <form class="popup__container">
+                    <button class="popup__btn-close"></button>
+                    <h2 class="popup__title">Редактировать профиль</h2>
+                    <input type="text" placeholder="Жак-Ив Кусто" class="popup__text popup__text_type_name">
+                    <input type="text" placeholder="Исследователь океана" class="popup__text popup__text_type_job">
+                    <input type="submit" class="popup__btn-save" value="Сохранить">
+                </form>
+            </section>
         </main>
         <footer class="footer">
             <p class="footer__copyright">© 2020 Mesto Russia</p>

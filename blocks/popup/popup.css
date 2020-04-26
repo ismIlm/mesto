@@ -1,15 +1,17 @@
+@import url(./__container/popup__container.css);
+@import url(./__title/popup__title.css);
+@import url(./__btn-save/popup__btn-save.css);
+@import url(./__btn-close/popup__btn-close.css);
+@import url(./__text/popup__text.css);
+
 .popup {
-    width: 882px;
+    display: none;
+    width:100%;
+    min-height:100%; 
+    background-color: rgba(0,0,0,0.5); 
+    overflow:hidden; 
+    position:fixed; 
+    top:0px; 
 }
 
-@media (min-width: 320px) and (max-width: 768px){
-    .popup {
-        width: 282px;
-    }
-} 
 
-@media (min-width: 768px) and (max-width: 1024px){
-    .popup {
-        width: 582px;
-    }
-} 
