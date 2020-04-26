@@ -1,20 +1,15 @@
-@import url(./__copyright/footer__copyright.css);
-
-.footer {
+.popup {
     width: 882px;
-    margin: 66px auto 60px;
 }
 
 @media (min-width: 320px) and (max-width: 768px){
-    .footer {
+    .popup {
         width: 282px;
-        margin: 48px auto 36px;
     }
 } 
 
 @media (min-width: 768px) and (max-width: 1024px){
-    .footer {
+    .popup {
         width: 582px;
     }
 } 
-

@@ -6,7 +6,7 @@
     margin-bottom: 25px;
 }
 
-@media (min-width: 320px) and (max-width: 567px){
+@media (min-width: 320px) and (max-width: 768px){
     .profile__subtitle {
         font-size: 14px;
         line-height: 17x;
@@ -16,3 +16,12 @@
     }
 } 
 
+@media (min-width: 768px) and (max-width: 1024px){
+    .profile__subtitle {
+        font-size: 22px;
+        line-height: 17x;
+        margin-top: 14px;
+        margin-bottom: 36px;
+       text-align: center;
+    }
+} 

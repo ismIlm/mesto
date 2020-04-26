@@ -8,7 +8,7 @@
     background: url(../../images/Profile/\ add.png) center no-repeat;
     background-size: 22px;
 }
-@media (min-width: 320px) and (max-width: 567px){
+@media (min-width: 320px) and (max-width: 1024px){
     .add-button {
         width: 100%;
         height: 50px;
@@ -16,3 +16,12 @@
         margin: 36px 0 0;
     }
 } 
+/*
+@media (min-width: 768px) and (max-width: 1024px){
+    .add-button {
+        width: 100%;
+        height: 50px;
+        background-size: 22px;
+        margin: 36px 0 0;
+    }
+} */

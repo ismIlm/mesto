@@ -1,15 +1,23 @@
 .profile__main {
     height: 120px;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     color: #ffffff;
 }
 
-@media (min-width: 320px) and (max-width: 567px){
+@media (min-width: 320px) and (max-width: 767px){
     .profile__main  {
-        width: 100%;
+
         flex-direction: column;
        
     }
 }
+/*
+@media (min-width: 768px) and (max-width: 1024px){
+    .profile__main  {
+        flex-direction: column;
+       
+    }
+}
+*/

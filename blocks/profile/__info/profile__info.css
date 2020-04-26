@@ -11,10 +11,18 @@
     align-items: center;
 }
 
-@media (min-width: 320px) and (max-width: 567px){
+@media (min-width: 320px) and (max-width: 768px){
     .profile__info {
         grid-column-gap: 0;
         grid-row-gap: 14px;
         margin-left: 0;
+    }
+} 
+
+@media (min-width: 768px) and (max-width: 1024px){
+    .profile__info {
+        grid-column-gap: 0;
+        grid-row-gap: 14px;
+        margin-left: 60px;
     }
 } 
