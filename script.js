@@ -5,12 +5,16 @@ let closeBtn = popup.querySelector('.popup__btn-close');
 let saveBtn = popup.querySelector('.popup__btn-save');
 let formElement = popup.querySelector('.popup__container');
 let prTitle = document.querySelector('.profile__title');
+let prSubtitle = document.querySelector('.profile__subtitle');
 
 function showPopup() {
     popup.classList.toggle('popup_opened');
     // 1. сохранить существующее значение
     let nameInput = popup.querySelector('.popup__text_type_name');
     nameInput.value = prTitle.textContent;
+
+    let jobInput = popup.querySelector('.popup__text_type_job');
+    jobInput.value = prSubtitle.textContent;
 }
 editBtn.addEventListener('click', showPopup);
 
@@ -27,9 +31,16 @@ function formSubmitHandler(evt) {
     let newName = popup.querySelector('.popup__text_type_name').value;
     console.log('New name of Jack Custo is');
     console.log(newName);
+
+    let newJob = popup.querySelector('.popup__text_type_job').value;
+    console.log('New job of исследователь is');
+    console.log(newJob);
     // 1.2. сохраним новое имя на странице
     let profileName = document.querySelector('.profile__title');
     profileName.textContent = newName;
+
+    let profileJob = document.querySelector('.profile__subtitle');
+    profileJob.textContent = newJob;
     
     // 1.3. возьмем новый род деят-ти
     // 1.4. сохраним новый род деятель-ти
