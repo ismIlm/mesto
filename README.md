@@ -11,4 +11,5 @@ Mesto
 На странице присутствуют 6 карточек с фотографиями. Снимки выбраны с сайта бесплатных фотографий  (https://unsplash.com).
 
 ### Ссылка на GitHub Pages:
-https://github.com/ismIlm/mesto
+https://ismilm.github.io/mesto/index.html
+

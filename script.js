@@ -6,14 +6,14 @@ const saveBtn = popup.querySelector('.popup__btn-save');
 const formElement = popup.querySelector('.popup__container');
 let prTitle = document.querySelector('.profile__title');
 let prSubtitle = document.querySelector('.profile__subtitle');
+let nameInput = popup.querySelector('.popup__text_type_name');
+let jobInput = popup.querySelector('.popup__text_type_job');
 
 function showPopup() {
     popup.classList.toggle('popup_opened');
-  
-    let nameInput = popup.querySelector('.popup__text_type_name');
+    
     nameInput.value = prTitle.textContent;
 
-    let jobInput = popup.querySelector('.popup__text_type_job');
     jobInput.value = prSubtitle.textContent;
 }
 editBtn.addEventListener('click', showPopup);
