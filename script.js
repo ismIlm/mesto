@@ -7,9 +7,10 @@ let formElement = popup.querySelector('.popup__container');
 let prTitle = document.querySelector('.profile__title');
 let prSubtitle = document.querySelector('.profile__subtitle');
 
+// 1. задать функцию всплывающее окно
 function showPopup() {
     popup.classList.toggle('popup_opened');
-    // 1. сохранить существующее значение
+    // 1.1 сохранить существующее значение
     let nameInput = popup.querySelector('.popup__text_type_name');
     nameInput.value = prTitle.textContent;
 
@@ -18,11 +19,12 @@ function showPopup() {
 }
 editBtn.addEventListener('click', showPopup);
 
+//2. задать функцию закрыть окно
 function closePopup() {
     popup.classList.remove('popup_opened');
 }
 closeBtn.addEventListener('click', closePopup);
-
+// задать функцию данные формы
 function formSubmitHandler(evt) {
     evt.preventDefault();
 
@@ -45,17 +47,7 @@ function formSubmitHandler(evt) {
     // 1.3. возьмем новый род деят-ти
     // 1.4. сохраним новый род деятель-ти
     // 2. закрыть popup
-   /* 
-    let nameInput = popup.querySelector('popup__text_type_name');
-    let jobInput = popup.querySelector('popup__text_type_job');
-
-    let newName = popup.querySelector('profile__title');
-    let newJob = popup.querySelector('profile__subtitle');
-
-    newName.textContent = nameInput.value;
-    newJob.textContent = jobInput.value;*/
-
+  
     closePopup();
-
 }
 formElement.addEventListener('submit', formSubmitHandler);

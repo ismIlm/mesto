@@ -1,8 +1,10 @@
 .popup__btn-close {
-    font-size: 18px;
-    width: 358px;
-    height: 57px;
-    background-color: #ffdb4d;
-    border-radius: 2px;
-    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background: url(../../images/Profile/CloseIcon.png);
+    padding: 0;
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    /*border: 0;*/
 }

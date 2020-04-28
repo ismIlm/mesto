@@ -9,7 +9,6 @@
 
 @media (min-width: 320px) and (max-width: 768px){
     .profile__title {
-        height: 38px;
         margin: 10px auto auto;
         font-size: 27px;
         text-align: center;
