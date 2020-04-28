@@ -20,14 +20,12 @@
         height: 286px;
         width: 282px;
         margin: 42px auto 0;
-
         flex-direction: column;
     }
 } 
 
 @media (min-width: 768px) and (max-width: 1024px) {
     .profile {
-        
         width: 582px;
         height: 200px;
         margin: 40px auto 0;

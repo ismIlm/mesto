@@ -4,4 +4,5 @@
     padding: 0;
     background: url(../../../images/Profile/edit.png);
     background-size: cover;
+    cursor: pointer;
 }

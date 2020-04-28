@@ -5,15 +5,6 @@
     margin-left: 0;
 }
 
-/*
-@media (min-width : 450px){
-    .header__logo {
-        width: 177px;
-        height: 52px;
-    }
-}
-*/
-
 @media (min-width: 320px) and (max-width: 567px){
     .header__logo {
         width: 103px;

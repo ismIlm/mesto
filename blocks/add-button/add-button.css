@@ -8,6 +8,11 @@
     background: url(../../images/Profile/\ add.png) center no-repeat;
     background-size: 22px;
 }
+
+.add-button:hover {
+    cursor: pointer;
+
+}
 @media (min-width: 320px) and (max-width: 1024px){
     .add-button {
         width: 100%;
