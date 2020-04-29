@@ -1,4 +1,7 @@
 @import url(./__image/element__image.css);
+@import url(./__like/element__like.css);
+@import url(./__script/element__script.css);
+@import url(./__title/element__title.css);
 
 .element {
     display: flex;

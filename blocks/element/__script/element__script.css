@@ -1,7 +1,4 @@
-@import url(./__like/script__like.css);
-@import url(./__title/script__title.css);
-
-.script {
+.element__script {
     width: 100%;
     height: 79px;
     align-items: center;
