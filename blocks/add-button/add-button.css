@@ -5,7 +5,7 @@
     text-decoration: none;
     user-select: none; 
     background: #000000;
-    background: url(../../images/Profile/\ add.png) center no-repeat;
+    background: url(../../images/profile/addButton.svg) center no-repeat;
     background-size: 22px;
 }
 

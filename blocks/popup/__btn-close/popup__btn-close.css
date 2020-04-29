@@ -10,7 +10,7 @@
 }
 
 .popup__btn-close::before {
-    background: url(../../../images/Profile/CloseIcon.svg);
+    background: url(../../../images/popup/closeIcon.svg);
     transform: rotate(45deg);
     background-size: contain;
     width: 100%;

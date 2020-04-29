@@ -2,7 +2,7 @@
     width: 24px;
     height: 24px;
     padding: 0;
-    background: url(../../../images/Profile/edit.png);
+    background: url(../../../images/profile/editButton.svg);
     background-size: cover;
     cursor: pointer;
 }
