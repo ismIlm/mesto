@@ -5,4 +5,5 @@
     background: url(../../../images/profile/editButton.svg);
     background-size: cover;
     cursor: pointer;
+    border: 1px solid #FFFFFF;
 }
