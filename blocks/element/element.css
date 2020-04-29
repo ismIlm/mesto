@@ -9,4 +9,6 @@
     align-items: center;
     width: 282px;
     height: 362px;
+    border-radius: 10px;
+    overflow: hidden;
 }
