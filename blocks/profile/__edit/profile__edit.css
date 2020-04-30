@@ -11,7 +11,7 @@
 }
 
 .profile__edit::before {
-    background: url(../../../images/profile/editButton.svg);
+    background: url(../../../images/profile/edit_button.svg);
     background-size: contain;
     width: 14px;
     height: 14px;
@@ -33,6 +33,10 @@
     .profile__edit::before {
         width: 8px;
         height: 8px;
-        
+    }
 }
+
+.profile__edit:hover {
+    cursor: pointer;
+    filter: brightness(0.5);
 }

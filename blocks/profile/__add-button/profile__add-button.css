@@ -6,15 +6,16 @@
     text-decoration: none;
     user-select: none; 
     background: #000000;
-    background: url(../../../images/profile/addButton.svg) center no-repeat;
+    background: url(../../../images/profile/add_button.svg) center no-repeat;
     background-size: 22px;
     border: 1px solid #FFFFFF;
 }
 
 .profile__add-button:hover {
     cursor: pointer;
-
+    filter: brightness(0.5);
 }
+
 @media (min-width: 320px) and (max-width: 1024px){
     .profile__add-button {
         width: 100%;

@@ -26,19 +26,17 @@ closeBtn.addEventListener('click', closePopup);
 function formSubmitHandler(evt) {
     evt.preventDefault();
  
-    let newName = popup.querySelector('.popup__text_type_name').value;
+    let newName = nameInput.value;
     console.log('New name of Jack Custo is');
     console.log(newName);
 
-    let newJob = popup.querySelector('.popup__text_type_job').value;
+    let newJob = jobInput.value;
     console.log('New job of исследователь is');
     console.log(newJob);
    
-    let profileName = document.querySelector('.profile__title');
-    profileName.textContent = newName;
+    prTitle.textContent = newName;
 
-    let profileJob = document.querySelector('.profile__subtitle');
-    profileJob.textContent = newJob;
+    prSubtitle.textContent = newJob;
    
     closePopup();
 }

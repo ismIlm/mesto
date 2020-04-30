@@ -3,6 +3,6 @@
     min-height: 79px;
     align-items: center;
     display: flex;
-    position: relative;
     background-color: #ffffff;
+    justify-content: space-between;
 }
