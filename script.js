@@ -26,17 +26,9 @@ closeBtn.addEventListener('click', closePopup);
 function formSubmitHandler(evt) {
     evt.preventDefault();
  
-    let newName = nameInput.value;
-    console.log('New name of Jack Custo is');
-    console.log(newName);
+    prTitle.textContent = nameInput.value;
 
-    let newJob = jobInput.value;
-    console.log('New job of исследователь is');
-    console.log(newJob);
-   
-    prTitle.textContent = newName;
-
-    prSubtitle.textContent = newJob;
+    prSubtitle.textContent = jobInput.value;
    
     closePopup();
 }
