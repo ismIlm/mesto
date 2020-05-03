@@ -9,11 +9,16 @@
     background: url(../../../images/profile/add_button.svg) center no-repeat;
     background-size: 22px;
     border: 1px solid #FFFFFF;
+    border-radius: 2px;
 }
 
 .profile__add-button:hover {
     cursor: pointer;
-    filter: brightness(0.5);
+    opacity: 0.5;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    box-sizing: border-box;
+ 
+
 }
 
 @media (min-width: 320px) and (max-width: 1024px){

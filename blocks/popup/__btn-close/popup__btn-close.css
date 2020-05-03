@@ -34,5 +34,6 @@
 
 .popup__btn-close:hover {
     cursor: pointer;
-    filter: brightness(0.5);
+    opacity: 0.5;
+    border: 2px solid rgba(255, 255, 255, 0.6);
   }
