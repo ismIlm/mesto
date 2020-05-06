@@ -16,12 +16,10 @@ function showPopup() {
 
     jobInput.value = prSubtitle.textContent;
 }
-editBtn.addEventListener('click', showPopup);
 
 function closePopup() {
     popup.classList.remove('popup_opened');
 }
-closeBtn.addEventListener('click', closePopup);
 
 function formSubmitHandler(evt) {
     evt.preventDefault();
@@ -33,3 +31,7 @@ function formSubmitHandler(evt) {
     closePopup();
 }
 formElement.addEventListener('submit', formSubmitHandler);
+
+editBtn.addEventListener('click', showPopup);
+
+closeBtn.addEventListener('click', closePopup);
