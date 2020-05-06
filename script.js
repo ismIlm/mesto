@@ -4,10 +4,10 @@ const popup = document.querySelector('.popup');
 const closeBtn = popup.querySelector('.popup__btn-close');
 const saveBtn = popup.querySelector('.popup__btn-save');
 const formElement = popup.querySelector('.popup__container');
-let prTitle = document.querySelector('.profile__title');
-let prSubtitle = document.querySelector('.profile__subtitle');
-let nameInput = popup.querySelector('.popup__text_type_name');
-let jobInput = popup.querySelector('.popup__text_type_job');
+const prTitle = document.querySelector('.profile__title');
+const prSubtitle = document.querySelector('.profile__subtitle');
+const nameInput = popup.querySelector('.popup__text_type_name');
+const jobInput = popup.querySelector('.popup__text_type_job');
 
 function showPopup() {
     popup.classList.toggle('popup_opened');

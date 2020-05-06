@@ -22,6 +22,5 @@
     .profile__info {
         grid-column-gap: 0;
         grid-row-gap: 14px;
-        margin-left: 60px;
     }
 } 

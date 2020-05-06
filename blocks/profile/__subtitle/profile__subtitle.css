@@ -2,8 +2,10 @@
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
-    margin-top: 16px;
+    margin-top: 5px;
     margin-bottom: 25px;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 @media (min-width: 768px) and (max-width: 1024px){
