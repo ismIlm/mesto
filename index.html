@@ -9,6 +9,7 @@
 </head>
 
 <body class="index-body">
+
     <section class="popup">
         <div class="popup__edit-form">
             <button type="button" class="popup__btn-close"></button>
@@ -20,6 +21,28 @@
             </form>
         </div>
     </section>
+
+    <section class="popup_new-place popup">
+        <div class="popup__edit-form_new-place popup__edit-form">
+            <button type="button" class="popup__btn-close_new-place popup__btn-close"></button>
+            <form class="popup__container_new-place popup__container">
+                <h2 class="popup__title popup__title_new-place">Новое место</h2>
+                <input type="text" class="popup__text popup__text_type_new-place_name" placeholder="Название" required>
+                <input type="text" class="popup__text popup__text_type_new-place_link" placeholder="Ссылка на картинку"required>
+                <button type="submit" class="popup__btn-save">Создать</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- <section>
+        <div class="popup_zoom popup">
+            <div class="popup__container">
+                <img class="popup__image">
+                <button type="button" class="popup__close-button_zoom popup__close-button"></button>
+                <p class="popup__caption"></p>
+            </div>
+    </section>
+-->
     <div class="page">
         <header class="header">
             <img src="./images/header/logo.svg" class="header__logo" alt="логотип MESTO">
