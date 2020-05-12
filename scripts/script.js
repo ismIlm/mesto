@@ -3,12 +3,13 @@ const prTitle = document.querySelector('.profile__title'); // имя профи�
 const prSubtitle = document.querySelector('.profile__subtitle'); // род занятий
 const addButton = document.querySelector('.profile__add-button'); // кнопка профиля - добавить
 const editBtn = prInfo.querySelector('.profile__edit'); // открыть редактирование профиля
-const popup = document.querySelector('.popup'); //попап редактирования профиля
-const closeBtn = popup.querySelector('.popup__btn-close'); // закрыть редактирование профиля
-const saveBtn = popup.querySelector('.popup__btn-save'); // сохранить редактирование профиля
-const formElement = popup.querySelector('.popup__container'); //контейнер попапа для редактирования профиля
-const nameInput = popup.querySelector('.popup__text_type_name'); //попап редактирование профиля - новое имя
-const jobInput = popup.querySelector('.popup__text_type_job'); // попап редактирование профиля - новый род занятий
+
+const popup = document.querySelector('.popup-profile'); //попап редактирования профиля
+const closeBtn = popup.querySelector('.popup-profile__btn-close'); // закрыть редактирование профиля
+const saveBtn = popup.querySelector('.popup-profile__btn-save'); // сохранить редактирование профиля
+const formElement = popup.querySelector('.popup-profile__container'); //контейнер попапа для редактирования профиля
+const nameInput = popup.querySelector('.popup-profile__text_type_name'); //попап редактирование профиля - новое имя
+const jobInput = popup.querySelector('.popup-profile__text_type_job'); // попап редактирование профиля - новый род занятий
 
 const elements = document.querySelector('.elements'); //карточки
 const popupNewPlace = document.querySelector('.popup_new-place'); // попап "новое место"
@@ -24,7 +25,7 @@ const addButtonNewPlace = prInfo.querySelector('.profile__add-button'); //кно
 
 function showPopup() { //1.сделать попап видимым
 
-    popup.classList.toggle('popup_opened');// добавляем попапу класс "открыть попап"
+    popup.classList.toggle('popup-profile_opened');// добавляем попапу класс "открыть попап"
     
     nameInput.value = prTitle.textContent; // получить данные из поля ввода - имя профиля
 
@@ -32,7 +33,7 @@ function showPopup() { //1.сделать попап видимым
 }
 
 function closePopup() { // 2.закрыть попап
-    popup.classList.remove('popup_opened'); // удаляем класс "попап открыть" 
+    popup.classList.remove('popup-profile_opened'); // удаляем класс "попап открыть" 
 }
 
 function formSubmitHandler(evt) { // 3. инициируем отправку формы
@@ -103,6 +104,56 @@ const initialCards = [ // где это вставить? и что дальше
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
+
+// Добавление карточек(элементов)
+
+// Включение лайков
+function handleLikeButtonClick(event) {
+    event.target.classList.toggle('element__like-button_active');
+}
+
+// Удаление карточек(элементов)
+function handleRemoveButtonClick(event) {
+    const deleteElement = event.target.closest('.element');
+    deleteElement.remove();
+}    
+
+// Zoom  (Увеличение) карточки при нажатии
+function handleImageElementClick(event) {
+    popupImage.src = event.target.src;
+    popupCaption.textContent = event.target.alt;
+   
+}
+
+// Добавление карточек(элементов)
+
+function createCard(item) {
+    const cardTemplate = document.querySelector('#card-template').content;
+    const cardElement = cardTemplate.cloneNode(true);
+
+    cardElement.querySelector('.element__text').textContent = item.name;
+    cardElement.querySelector('.element__image').src = item.link;
+    cardElement.querySelector('.element__image').alt = cardElement.querySelector('.element__text').textContent;
+
+    const likeButton = cardElement.querySelector('.element__like-button');
+    likeButton.addEventListener('click', handleLikeButtonClick);
+    
+    const removeButton = cardElement.querySelector('.element__remove-button'); 
+    removeButton.addEventListener('click', handleRemoveButtonClick);
+
+    const imageElement = cardElement.querySelector('.element__image');
+    imageElement.addEventListener('click', handleImageElementClick(imageElement));
+
+    return cardElement;
+    // elements.prepend(cardElement);
+
+}
+
+function addCreateCard() {
+    elements.prepend();   
+}
+
+cards.forEach(createCard);
 
 
 /*const popupZoom = document.querySelector('.popup_zoom');

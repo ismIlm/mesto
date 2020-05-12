@@ -1,4 +1,4 @@
-.popup__btn-save {
+.popup-profile__btn-save {
     font-size: 18px;
     width: 100%;
     min-height: 50px;
@@ -9,7 +9,7 @@
     border-radius: 2px;
 }
 
-.popup__btn-save:hover {
+.popup-profile__btn-save:hover {
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.8);
 }
