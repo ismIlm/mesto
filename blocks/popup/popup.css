@@ -1,0 +1,23 @@
+@import url(./popup_profile/popup_profile.css);
+@import url(./popup_new_place/popup_new_place.css);
+@import url(./__container/popup__container.css);
+@import url(./__title/popup__title.css);
+@import url(./__text/popup__text.css);
+@import url(./__form/popup__form.css);
+@import url(./__btn-save/popup__btn-save.css);
+@import url(./__btn-close/popup__btn-close.css);
+@import url(./_opened/popup_opened.css);
+
+.popup {
+    display: none;
+    width: 100%;
+    margin: auto;
+    min-height: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+    overflow: hidden; 
+    position: fixed; 
+    top: 0; 
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}

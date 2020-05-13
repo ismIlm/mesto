@@ -1,0 +1,7 @@
+.popup__form {
+    display: flex;
+    position: relative;
+    margin: 195px auto auto;
+    width: 430px;
+    height: 330px;
+}

@@ -1,4 +1,4 @@
-.popup-profile__btn-close {
+.popup__btn-close {
     width: 40px;
     height: 40px;
     background-color: rgba( 0, 0, 0, 0);
@@ -9,7 +9,7 @@
     border: 0;
 }
 
-.popup-profile__btn-close::before {
+.popup__btn-close::before {
     background: url(../../../images/popup/close_icon.svg);
     transform: rotate(45deg);
     background-size: contain;
@@ -22,17 +22,17 @@
 }
 
 @media (min-width: 320px) and (max-width: 768px){
-    .popup-profile__btn-close::before {
+    .popup__btn-close::before {
         background: url(../../../images/popup/close_icon_black.svg);
     }
 
-    .popup-profile__btn-close {
+    .popup__btn-close {
         right: 10px;
         top: 20px;
     }
 } 
 
-.popup-profile__btn-close:hover {
+.popup__btn-close:hover {
     cursor: pointer;
     opacity: 0.5;
   }

@@ -1,82 +1,67 @@
-const prInfo = document.querySelector('.profile__info'); //профиль
-const prTitle = document.querySelector('.profile__title'); // имя профиля
-const prSubtitle = document.querySelector('.profile__subtitle'); // род занятий
-const addButton = document.querySelector('.profile__add-button'); // кнопка профиля - добавить
-const editBtn = prInfo.querySelector('.profile__edit'); // открыть редактирование профиля
+const prInfo = document.querySelector('.profile__info'); 
+const prTitle = document.querySelector('.profile__title');
+const prSubtitle = document.querySelector('.profile__subtitle');
+const addBtn = document.querySelector('.profile__add-button');
+const editBtn = prInfo.querySelector('.profile__edit');
 
-const popup = document.querySelector('.popup-profile'); //попап редактирования профиля
-const closeBtn = popup.querySelector('.popup-profile__btn-close'); // закрыть редактирование профиля
-const saveBtn = popup.querySelector('.popup-profile__btn-save'); // сохранить редактирование профиля
-const formElement = popup.querySelector('.popup-profile__container'); //контейнер попапа для редактирования профиля
-const nameInput = popup.querySelector('.popup-profile__text_type_name'); //попап редактирование профиля - новое имя
-const jobInput = popup.querySelector('.popup-profile__text_type_job'); // попап редактирование профиля - новый род занятий
+const popup = document.querySelector('.popup_profile');
+const closeBtn = popup.querySelector('.popup__btn-close'); 
+const saveBtn = popup.querySelector('.popup__btn-save');
+const formElement = popup.querySelector('.popup__container');
+const nameInput = popup.querySelector('.popup__text_type_name');
+const jobInput = popup.querySelector('.popup__text_type_job');
+
+const popupNewPlace = document.querySelector('.popup_new_place');
+const formElementNewPlace = popupNewPlace.querySelector('.popup__container');
+const cardName = popupNewPlace.querySelector('.profile__title');
+const cardLinc = popupNewPlace.querySelector('.profile__subtitle');
+const nameInputNewPlace = popupNewPlace.querySelector('.popup__text_type_name');
+const lincInputNewPlace = popupNewPlace.querySelector('.popup__text_type_job');
+const closeBtnNewPlace = popupNewPlace.querySelector('.popup__btn-close'); 
 
 const elements = document.querySelector('.elements'); //карточки
-const popupNewPlace = document.querySelector('.popup_new-place'); // попап "новое место"
-const formElementNewPlace = document.querySelector('.popup__edit-form_new-place'); //форма попапа "новое место"
-const closeButtonNewPlace = document.querySelector('.popup__btn-close_new-place'); // закрыть попап "Новое место"
-const placeInput = document.querySelector('.popup__text_type_new-place_name'); //название новой карточки
-const linkInput = document.querySelector('.popup__input_new-place_link'); // ссылка новой карточки
-const addButtonNewPlace = prInfo.querySelector('.profile__add-button'); //кнопка добавления карточек
-/*const saveBtnNewPlace = popup.querySelector('.popup__btn-save????'); // сохранить добавление карточек */
 
-
-// попап Изменение данных профиля
-
-function showPopup() { //1.сделать попап видимым
-
-    popup.classList.toggle('popup-profile_opened');// добавляем попапу класс "открыть попап"
-    
-    nameInput.value = prTitle.textContent; // получить данные из поля ввода - имя профиля
-
-    jobInput.value = prSubtitle.textContent; // полцчить данные из поля ввода - род занятий
+function showPopup() { 
+    popup.classList.toggle('popup_opened');
+    nameInput.value = prTitle.textContent; 
+    jobInput.value = prSubtitle.textContent;
 }
 
-function closePopup() { // 2.закрыть попап
-    popup.classList.remove('popup-profile_opened'); // удаляем класс "попап открыть" 
+function closePopup() { 
+    popup.classList.remove('popup_opened');
+}
+
+function formSubmitHandler(evt) {
+    evt.preventDefault();
+    prTitle.textContent = nameInput.value;
+    prSubtitle.textContent = jobInput.value;
+    closePopup();
+}
+
+function showPopupNewPlace() { 
+    popupNewPlace.classList.toggle('popup_opened');
+    nameInputNewPlace.value = cardName.textContent;
+    lincInputNewPlace.value = cardLinc.textContent;
+}
+
+function closePopupNewPlace() { 
+    popupNewPlace.classList.remove('popup_opened');
 }
 
 function formSubmitHandler(evt) { // 3. инициируем отправку формы
     evt.preventDefault(); // отменяем переход по ссылке ???
- 
-    prTitle.textContent = nameInput.value; //вывести текстовое содержимое из поля ввода  - Имя профиля
-
-    prSubtitle.textContent = jobInput.value; //вывести текстовое содержимое из поля ввода  - род занятий профиля
-   
-    closePopup(); // закрыть попап
+    cardName.textContent = nameInputNewPlace.value; //вывести текстовое содержимое из поля ввода 
+    cardLinc.textContent = lincInputNewPlace.value; //вывести текстовое содержимое из поля ввода 
+    closePopupNewPlace(); // закрыть попап
 }
-formElement.addEventListener('submit', formSubmitHandler); //зачем?
+formElement.addEventListener('submit', formSubmitHandler); 
+editBtn.addEventListener('click', showPopup); 
+closeBtn.addEventListener('click', closePopup); 
+formElementNewPlace.addEventListener('submit', formSubmitHandler); 
+addBtn.addEventListener('click', showPopupNewPlace); 
+closeBtnNewPlace.addEventListener('click', closePopupNewPlace);
 
-editBtn.addEventListener('click', showPopup); //зачем?
-
-closeBtn.addEventListener('click', closePopup); //зачем?
-
-
-//попап Добавление карточек
-
-function showPopupNewPlace() { //1.сделать попап видимым
-
-    popupNewPlace.classList.toggle('popupNewPlace_opened');// добавляем попапу класс "открыть попап"
-    
-    placeInput.value = prTitle.textContent; // можно менять так?
-
-    linkInput.value = prSubtitle.textContent; // можно менять так?
-
-    function formSubmitHandler(evt) { // 3. инициируем отправку формы
-        evt.preventDefault(); // отменяем переход по ссылке ???
-     
-        prTitle.textContent = placeInput.value; //вывести текстовое содержимое из поля ввода 
-    
-        prSubtitle.textContent = linkInput.value; //вывести текстовое содержимое из поля ввода 
-       
-        closePopupNewPlace(); // закрыть попап
-    }
-    formElementNewPlace.addEventListener('submit', formSubmitHandler); 
-    
-    addButtonNewPlace.addEventListener('click', showPopupNewPlace); 
-    
-    closeBtn.addEventListener('click', closePopupNewPlace);
-}
+/*
 
 const initialCards = [ // где это вставить? и что дальше?
     {

@@ -7,5 +7,11 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/element/element.css);
 @import url(../blocks/page/page.css);
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
+/*
 @import url(../blocks/popup-profile/popup-profile.css);
 @import url(../blocks/popup-profile/_opened/popup-profile_opened.css);
+@import url(../blocks/popup-new_place/popup-new_place.css);
+@import url(../blocks/popup-new_place/_opened/popup-new_place_opened.css);
+*/
