@@ -63,23 +63,32 @@
             </section>
 
             <section class="elements">
+                <template id="card-template">
+                    <article class="element">
+                        <img src="" alt="" class="element__image">
+                        <button type="button" class="element__remove-button"></button>
+                        <div class="element__script">
+                            <h2 class="element__title"></h2>
+                            <button type="button" class="element__like"></button>
+                        </div>
+                    </article>
+                </template>
                 <article class="element">
                     <img src="./images/elements/elbrus.jpg"
                         alt="Вершина горы Эльбрус на фоне заката. Ничто не нарушает великолепную тишину предгорья."
                         class="element__image">
                     <button type="button" class="element__remove-button"></button>
-                    <button type="button" class="element__cover-button"></button>
                     <div class="element__script">
                         <h2 class="element__title">Эльбрус</h2>
                         <button type="button" class="element__like"></button>
                     </div>
                 </article>
+
                 <article class="element">
                     <img src="./images/elements/dombay.jpg"
                         alt="Снежные вершины Домбая на фоне пасмурного неба и лесного предгорья."
                         class="element__image">
                     <button type="button" class="element__remove-button"></button>
-                    <button type="button" class="element__cover-button"></button>
                     <div class="element__script">
                         <h2 class="element__title">Домбай</h2>
                         <button type="button" class="element__like"></button>
@@ -90,7 +99,6 @@
                         alt="Утро у подножия гор Памир. Безоблачное голубое небо  разбавлено единственным легким облаком."
                         class="element__image">
                     <button type="button" class="element__remove-button"></button>
-                    <button type="button" class="element__cover-button"></button>
                     <div class="element__script">
                         <h2 class="element__title">Памир</h2>
                         <button type="button" class="element__like"></button>
@@ -101,7 +109,6 @@
                         alt="Церковь у подножия гор в Карачаеске. Лесные склоны обрамляют весь пейзаж вокруг."
                         class="element__image">
                     <button type="button" class="element__remove-button"></button>
-                    <button type="button" class="element__cover-button"></button>
                     <div class="element__script">
                         <h2 class="element__title">Карачаевск</h2>
                         <button type="button" class="element__like"></button>
@@ -112,7 +119,6 @@
                         alt="Рассвет на плато Тянь-Шань. Нежные лучи солнца окутали вершины гор."
                         class="element__image">
                     <button type="button" class="element__remove-button"></button>
-                    <button type="button" class="element__cover-button"></button>
                     <div class="element__script">
                         <h2 class="element__title">Тянь-Шань</h2>
                         <button type="button" class="element__like"></button>
@@ -123,7 +129,6 @@
                         alt="Самая высокая гора в мире - Эверест. Остроконечная вершина в лучах утреннего солнца манит альпинистов своим великолепием."
                         class="element__image">
                     <button type="button" class="element__remove-button"></button>
-                    <button type="button" class="element__cover-button"></button>
                     <div class="element__script">
                         <h2 class="element__title">Эверест</h2>
                         <button type="button" class="element__like"></button>

@@ -3,7 +3,7 @@
 @import url(./__script/element__script.css);
 @import url(./__title/element__title.css);
 @import url(./__remove-button/element__remove-button.css);
-@import url(./__cover-button/element__cover-button.css);
+
 
 .element {
     display: flex;
