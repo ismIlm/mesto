@@ -7,6 +7,11 @@
 @import url(./__btn-save/popup__btn-save.css);
 @import url(./__btn-close/popup__btn-close.css);
 @import url(./_opened/popup_opened.css);
+@import url(./__img-container/popup__img-container.css);
+@import url(./__big-image/popup__big-image.css);
+@import url(./__figcaption/popup__figcaption.css);
+
+
 
 .popup {
     display: none;

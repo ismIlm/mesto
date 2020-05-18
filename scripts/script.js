@@ -16,8 +16,9 @@ const elTitle = document.querySelector('.element__title');
 const elLinc = document.querySelector('.element__image');
 const nameInputNewPlace = popupNewPlace.querySelector('.popup__text_type_name');
 const lincInputNewPlace = popupNewPlace.querySelector('.popup__text_type_job');
-const cardsContainer = document.querySelector(".elements"); //куда вставляются картинки
+const cardsContainer = document.querySelector('.elements'); //куда вставляются картинки
 const likeBtn = document.querySelector('.element__like');
+
 const cards = [
     {
         name: 'Архыз',
@@ -44,9 +45,6 @@ const cards = [
         link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
     }
 ];
-/*const elements = document.querySelector('.elements');
-
-const imageElement = cardElement.querySelector('.element__image');*/
 
 function showPopup() { 
     popup.classList.toggle('popup_opened');
@@ -77,64 +75,59 @@ function closePopupNewPlace() {
 
 function newPlaceFormSubmitHandler(evt) {
     evt.preventDefault();
-    elTitle.textContent = nameInputNewPlace.value;
-    elLinc.src = lincInputNewPlace.value;
+    newCardData = {
+        name: nameInputNewPlace.value,
+        link: lincInputNewPlace.value,
+    };
+    addNewCards(newCardData);
     closePopupNewPlace();
 }
 
 function likeCard(event) {
+    console.log('like button clicked. event=' + event);
     event.target.classList.toggle('element__like_active');
 }
 
 function addNewCards(item) {
     const cardTemplate = document.querySelector('#card-template').content;
     const cardElement = cardTemplate.cloneNode(true);
+    
 
     cardElement.querySelector('.element__title').textContent = item.name;
     cardElement.querySelector('.element__image').src = item.link;
-    cardElement.querySelector('.element__remove-button').addEventListener("click", remove);
-    cardElement.querySelector(".element__vector").addEventListener("click", likeCard);
+    cardElement.querySelector('.element__remove-button').addEventListener("click", removeCard);
+    cardElement.querySelector(".element__like").addEventListener("click", likeCard);
+
+    cardsContainer.prepend(cardElement);
  
     return cardElement;
 }
 
-function remove(event) {
-    const cardElement = event.target.closest(".element");
-    cardElement.querySelector(".element__vector").removeEventListener("click", likeCard);
-    cardElement.querySelector(".element__trash").removeEventListener("click", remove);
-    cardElement.querySelector(".element__image").removeEventListener("click", openImgPopup);
-    cardsContainer.removeChild(cardElement);
-    cards.splice(cardElement, 1);
-  }
 
-  /*  
+function addCards(cards) {
+    cards.map(function (card) {
+      cardsContainer.prepend(addNewCard(card));
+    });
+  }
+  
+addNewCards(cards);
+
 // Функция удалить карточку 
 
-function remove(event) {
+function removeCard(event) {
     const cardElement = event.target.closest(".element");
+    const removeButton = cardElement.querySelector('.element__remove-button'); 
     cardElement.querySelector(".element__remove-button").removeEventListener("click", remove);
     cardElement.querySelector(".element__image").removeEventListener("click", openImgPopup);
     cardsContainer.removeChild(cardElement);
-    cards.splice(cardElement, 1);
-  }
-
-    const removeButton = cardElement.querySelector('.element__remove-button'); 
+    cards.splice(cardElement, prepend);
     removeButton.addEventListener('click', handleRemoveButtonClick);
-
-    cardlement.addEventListener('click', handleImageElementClick(imageElement));
-
+    cardElement.addEventListener('click', handleImageElementClick(imageElement));
     return cardElement;
-*/
+}
+
+
  /*   
-
-
-
-// Удаление карточек(элементов)
-function handleRemoveButtonClick(event) {
-    const deleteElement = event.target.closest('.element');
-    deleteElement.remove();
-}    
-
 // Zoom  (Увеличение) карточки при нажатии
 function handleImageElementClick(event) {
     popupImage.src = event.target.src;
