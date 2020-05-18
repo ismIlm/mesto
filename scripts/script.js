@@ -3,19 +3,26 @@ const editBtn = prInfo.querySelector('.profile__edit');
 const popup = document.querySelector('.popup'); 
 const closeBtn = popup.querySelector('.popup__btn-close'); 
 const saveBtn = popup.querySelector('.popup__btn-save'); 
-const formElement = popup.querySelector('.popup__container'); 
+const formElement = popup.querySelector('.popup__container');
+
 const prTitle = document.querySelector('.profile__title'); 
 const prSubtitle = document.querySelector('.profile__subtitle'); 
 const nameInput = popup.querySelector('.popup__text_type_name'); 
 const jobInput = popup.querySelector('.popup__text_type_job'); 
 const addBtn = document.querySelector('.profile__add-button');
+
+
 const popupNewPlace = document.querySelector('.popup_new_place');
 const closeBtnNewPlace = popupNewPlace.querySelector('.popup__btn-close'); 
 const formElementNewPlace = popupNewPlace.querySelector('.popup__container');
-const elTitle = document.querySelector('.element__title');
-const elLinc = document.querySelector('.element__image');
 const nameInputNewPlace = popupNewPlace.querySelector('.popup__text_type_name');
 const lincInputNewPlace = popupNewPlace.querySelector('.popup__text_type_job');
+
+// popup image variables
+const closeBtnImg = document.querySelector(".popup__btn-close_img");
+const popupImg = document.querySelector(".popup_img");
+const popupBigImage = document.querySelector(".popup__big-image");
+const popupFigcaption = document.querySelector(".popup__figcaption");
 const cardsContainer = document.querySelector('.elements'); //куда вставляются картинки
 const likeBtn = document.querySelector('.element__like');
 
@@ -83,6 +90,22 @@ function newPlaceFormSubmitHandler(evt) {
     closePopupNewPlace();
 }
 
+//попап картинки
+
+
+function openImgPopup(evt) {
+    popupImg.classList.add("popup_opened");
+    popupBigImage.src = evt.target.src;
+    popupBigImage.alt = evt.target.alt;
+    popupFigcaption.textContent = evt.target.alt;
+
+  }
+
+
+  function closeImgPopup() { 
+    popupImg.classList.remove('popup_opened');
+}
+
 function likeCard(event) {
     console.log('like button clicked. event=' + event);
     event.target.classList.toggle('element__like_active');
@@ -96,7 +119,8 @@ function addNewCards(item) {
     cardElement.querySelector('.element__title').textContent = item.name;
     cardElement.querySelector('.element__image').src = item.link;
     cardElement.querySelector('.element__remove-button').addEventListener("click", removeCard);
-    cardElement.querySelector(".element__like").addEventListener("click", likeCard);
+    cardElement.querySelector('.element__like').addEventListener("click", likeCard);
+    cardElement.querySelector('.element__image').addEventListener("click",openImgPopup);
 
     cardsContainer.prepend(cardElement);
  
@@ -127,13 +151,8 @@ function removeCard(event) {
 }
 
 
- /*   
-// Zoom  (Увеличение) карточки при нажатии
-function handleImageElementClick(event) {
-    popupImage.src = event.target.src;
-    popupCaption.textContent = event.target.alt;
-   
-}
+
+ 
 
 
 
@@ -150,3 +169,4 @@ closeBtn.addEventListener('click', closePopup);
 formElementNewPlace.addEventListener('submit', newPlaceFormSubmitHandler); 
 addBtn.addEventListener('click', showPopupNewPlace); 
 closeBtnNewPlace.addEventListener('click', closePopupNewPlace);
+closeBtnImg.addEventListener("click", closePopup);
