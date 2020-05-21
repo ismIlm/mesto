@@ -18,12 +18,11 @@ const formElementNewPlace = popupNewPlace.querySelector('.popup__container');
 const nameInputNewPlace = popupNewPlace.querySelector('.popup__text_type_name');
 const lincInputNewPlace = popupNewPlace.querySelector('.popup__text_type_job');
 
-// popup image variables
 const closeBtnImg = document.querySelector(".popup__btn-close_img");
 const popupImg = document.querySelector(".popup_img");
 const popupBigImage = document.querySelector(".popup__big-image");
 const popupFigcaption = document.querySelector(".popup__figcaption");
-const cardsContainer = document.querySelector('.elements'); //куда вставляются картинки
+const cardsContainer = document.querySelector('.elements'); 
 const likeBtn = document.querySelector('.element__like');
 
 const cards = [
@@ -90,9 +89,6 @@ function newPlaceFormSubmitHandler(evt) {
     closePopupNewPlace();
 }
 
-//попап картинки
-
-
 function openImgPopup(evt) {
     popupImg.classList.add("popup_opened");
     popupBigImage.src = evt.target.src;
@@ -123,31 +119,19 @@ function addNewCards(item) {
     cardElement.querySelector('.element__image').addEventListener("click",openImgPopup);
 
     cardsContainer.prepend(cardElement);
- 
-    return cardElement;
 }
 
 
 function addCards(cards) {
-    cards.map(function (card) {
-      cardsContainer.prepend(addNewCard(card));
-    });
-  }
+    cards.forEach(card => addNewCards(card));
+}
   
-addNewCards(cards);
+addCards(cards);
 
-// Функция удалить карточку 
 
 function removeCard(event) {
     const cardElement = event.target.closest(".element");
-    const removeButton = cardElement.querySelector('.element__remove-button'); 
-    cardElement.querySelector(".element__remove-button").removeEventListener("click", remove);
-    cardElement.querySelector(".element__image").removeEventListener("click", openImgPopup);
     cardsContainer.removeChild(cardElement);
-    cards.splice(cardElement, prepend);
-    removeButton.addEventListener('click', handleRemoveButtonClick);
-    cardElement.addEventListener('click', handleImageElementClick(imageElement));
-    return cardElement;
 }
 
 

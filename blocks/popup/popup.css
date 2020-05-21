@@ -1,5 +1,6 @@
 @import url(./popup_profile/popup_profile.css);
 @import url(./popup_new_place/popup_new_place.css);
+@import url(./popup_img/popup_img.css);
 @import url(./__container/popup__container.css);
 @import url(./__title/popup__title.css);
 @import url(./__text/popup__text.css);
@@ -14,15 +15,18 @@
 
 
 .popup {
-    display: none;
+    display: flex;
     width: 100%;
     margin: auto;
     min-height: 100%; 
     background-color: rgba(0,0,0,0.5); 
-    overflow: hidden; 
+    /*overflow: hidden; */
     position: fixed; 
     top: 0; 
     right: 0;
     bottom: 0;
     z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .7s linear, opacity .3s linear;
 }
