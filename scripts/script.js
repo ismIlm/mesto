@@ -18,8 +18,8 @@ const formElementNewPlace = popupNewPlace.querySelector('.popup__container');
 const nameInputNewPlace = popupNewPlace.querySelector('.popup__text_type_name');
 const lincInputNewPlace = popupNewPlace.querySelector('.popup__text_type_job');
 
-const closeBtnImg = document.querySelector(".popup__btn-close_img");
 const popupImg = document.querySelector(".popup_img");
+const closeBtnImg = popupImg.querySelector(".popup__btn-close");
 const popupBigImage = document.querySelector(".popup__big-image");
 const popupFigcaption = document.querySelector(".popup__figcaption");
 const cardsContainer = document.querySelector('.elements'); 
@@ -92,13 +92,13 @@ function newPlaceFormSubmitHandler(evt) {
 function openImgPopup(evt) {
     popupImg.classList.add("popup_opened");
     popupBigImage.src = evt.target.src;
-    popupBigImage.alt = evt.target.alt;
-    popupFigcaption.textContent = evt.target.alt;
-
+    const NameCard = evt.target.nextElementSibling.nextElementSibling.innerText;
+    console.log(NameCard);
+    popupBigImage.alt = NameCard;
+    popupFigcaption.textContent = NameCard;
   }
 
-
-  function closeImgPopup() { 
+function closeImgPopup() { 
     popupImg.classList.remove('popup_opened');
 }
 
@@ -110,17 +110,13 @@ function likeCard(event) {
 function addNewCards(item) {
     const cardTemplate = document.querySelector('#card-template').content;
     const cardElement = cardTemplate.cloneNode(true);
-    
-
     cardElement.querySelector('.element__title').textContent = item.name;
     cardElement.querySelector('.element__image').src = item.link;
     cardElement.querySelector('.element__remove-button').addEventListener("click", removeCard);
     cardElement.querySelector('.element__like').addEventListener("click", likeCard);
     cardElement.querySelector('.element__image').addEventListener("click",openImgPopup);
-
     cardsContainer.prepend(cardElement);
 }
-
 
 function addCards(cards) {
     cards.forEach(card => addNewCards(card));
@@ -128,24 +124,10 @@ function addCards(cards) {
   
 addCards(cards);
 
-
 function removeCard(event) {
     const cardElement = event.target.closest(".element");
     cardsContainer.removeChild(cardElement);
 }
-
-
-
- 
-
-
-
-/*const popupZoom = document.querySelector('.popup_zoom');
-const popupImage = document.querySelector('.popup__image');
-const popupCaption = document.querySelector('.popup__caption');
-const closeButtonZoom = document.querySelector('.popup__close-button_zoom');*/
-
-
 
 formElement.addEventListener('submit', bioFormSubmitHandler); 
 editBtn.addEventListener('click', showPopup); 
@@ -153,4 +135,4 @@ closeBtn.addEventListener('click', closePopup);
 formElementNewPlace.addEventListener('submit', newPlaceFormSubmitHandler); 
 addBtn.addEventListener('click', showPopupNewPlace); 
 closeBtnNewPlace.addEventListener('click', closePopupNewPlace);
-closeBtnImg.addEventListener("click", closePopup);
+closeBtnImg.addEventListener("click", closeImgPopup);
