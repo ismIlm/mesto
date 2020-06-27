@@ -4,8 +4,8 @@ const popup = document.querySelector('.popup');
 const closeBtn = popup.querySelector('.popup__btn-close'); 
 const formElement = popup.querySelector('.popup__container');
 
-const prTitle = document.querySelector('.profile__title'); 
-const prSubtitle = document.querySelector('.profile__subtitle'); 
+const profileTitle = document.querySelector('.profile__title'); 
+const profileSubtitle = document.querySelector('.profile__subtitle'); 
 const nameInput = popup.querySelector('.popup__text_type_name'); 
 const infoInput = popup.querySelector('.popup__text_type_job');
 const addBtn = document.querySelector('.profile__add-button');
@@ -51,7 +51,11 @@ const cards = [
     }
 ];
 
-function showPopup(localPopup, allName, info) {
+function togglePopup(localPopup) {
+    localPopup.classList.toggle('popup_opened');
+  }
+
+/*function showPopup(localPopup, allName, info) {
     localPopup.classList.toggle('popup_opened');
 
     const inputName = localPopup.querySelector('.popup__text_type_name');
@@ -60,19 +64,25 @@ function showPopup(localPopup, allName, info) {
     const inputInfo = localPopup.querySelector('.popup__text_type_job');
     inputInfo.textContent = info;
 
+}*/
+
+function showPopup(localPopup, allName, info) {
+    
+    const inputName = localPopup.querySelector('.popup__text_type_name');
+    inputName.textContent = allName;
+
+    const inputInfo = localPopup.querySelector('.popup__text_type_job');
+    inputInfo.textContent = info;
+
+    togglePopup(localPopup);
 }
 
 function bioFormSubmitHandler(evt) {
     evt.preventDefault();
-    prTitle.textContent = nameInput.value;
-    prSubtitle.textContent = infoInput.value;
+    profileTitle.textContent = nameInput.value;
+    profileSubtitle.textContent = infoInput.value;
+    togglePopup(localPopup);
 }
-
-editBtn.addEventListener('click', () => showPopup(popup, prTitle.textContent, prSubtitle.textContent));
-closeBtn.addEventListener('click', () => popup.classList.toggle('popup_opened'));
-addBtn.addEventListener('click', () => showPopup(popupNewPlace, " ", " "));
-closeBtnNewPlace.addEventListener('click', () => popupNewPlace.classList.toggle('popup_opened'));
-formElement.addEventListener('submit', bioFormSubmitHandler); 
 
 function openImgPopup(evt) {
     const parentElement = evt.target.parentElement;
@@ -82,10 +92,23 @@ function openImgPopup(evt) {
     const nameCard = element.textContent;
     popupBigImage.alt = nameCard;
     popupFigcaption.textContent = nameCard;
+    togglePopup(localPopup);
 }
 
+editBtn.addEventListener('click', () => showPopup(popup, profileTitle.textContent, profileSubtitle.textContent));
+//closeBtn.addEventListener('click', () => popup.classList.toggle('popup_opened'));
+addBtn.addEventListener('click', () => showPopup(popupNewPlace, " ", " "));
+//closeBtnNewPlace.addEventListener('click', () => popupNewPlace.classList.toggle('popup_opened'));
+formElement.addEventListener('submit', bioFormSubmitHandler); 
 formElementNewPlace.addEventListener('submit', newPlaceFormSubmitHandler); 
-closeBtnImg.addEventListener ('click', (evt) => popupImg.classList.toggle("popup_opened"));
+//closeBtnImg.addEventListener ('click', (evt) => popupImg.classList.toggle("popup_opened"));
+
+closeBtn.addEventListener('click', () => { togglePopup(popup);
+});
+closeBtnNewPlace.addEventListener('click', () => { togglePopup(popupNewPlace);
+});
+closeBtnImg.addEventListener ('click', () => { togglePopup(popupImg);
+});
 
 function createCard(item) {
     const cardElement = cardTemplate.cloneNode(true);
@@ -119,5 +142,6 @@ addCards(cards);
 
 function removeCard(event) {
     const cardElement = event.target.closest(".element");
-    cardsContainer.removeChild(cardElement);
+    //cardsContainer.removeChild(cardElement);
+    cardElement.remove();
 }

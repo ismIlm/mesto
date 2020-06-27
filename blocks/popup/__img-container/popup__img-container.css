@@ -1,11 +1,13 @@
 .popup__img-container {
     height: 540px;
-    display: flex;
-    flex-direction: column;
+    /*display: flex;
+    flex-direction: column;*/
     position: relative;
     background: transparent;
     justify-content: normal;
     align-content: center;
-    margin: 90px auto;
     padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
