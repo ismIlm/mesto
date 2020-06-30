@@ -1,6 +1,3 @@
-@import url(./popup_profile/popup_profile.css);
-@import url(./popup_new_place/popup_new_place.css);
-@import url(./popup_img/popup_img.css);
 @import url(./__container/popup__container.css);
 @import url(./__title/popup__title.css);
 @import url(./__text/popup__text.css);

@@ -1,7 +1,5 @@
 .popup__img-container {
-    height: 540px;
-    /*display: flex;
-    flex-direction: column;*/
+    height: max-content;
     position: relative;
     background: transparent;
     justify-content: normal;
