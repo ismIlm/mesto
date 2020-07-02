@@ -1,4 +1,4 @@
-.elements {
+.card-container {
     width: 882px;
     display: grid;
     grid-column-gap: 18px;
@@ -9,7 +9,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 768px){
-    .elements {
+    .card-container {
         width: 282px;
         grid-row-gap: 20px;
         grid-template-columns: repeat(1, auto);
@@ -19,7 +19,7 @@
 } 
 
 @media (min-width: 768px) and (max-width: 1024px){
-    .elements {
+    .card-container {
         width: 582px;
         grid-row-gap: 20px;
         grid-template-columns: repeat(2, auto);

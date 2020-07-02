@@ -21,7 +21,7 @@ const popupImg = document.querySelector(".popup_img");
 const closeBtnImg = popupImg.querySelector(".popup__btn-close");
 const popupBigImage = document.querySelector(".popup__big-image");
 const popupFigcaption = document.querySelector(".popup__figcaption");
-const cardsContainer = document.querySelector('.elements'); 
+const cardsContainer = document.querySelector('.card-container'); 
 const cardTemplate = document.querySelector('#card-template').content;
 
 const cards = [
@@ -93,18 +93,18 @@ function newPlaceFormSubmitHandler(evt) {
 
 function createCard(item) {
     const cardElement = cardTemplate.cloneNode(true);
-    cardElement.querySelector('.element__title').textContent = item.name;
-    const elementImg = cardElement.querySelector('.element__image');
+    cardElement.querySelector('.card__title').textContent = item.name;
+    const elementImg = cardElement.querySelector('.card__image');
     elementImg.src = item.link;
     elementImg.alt = item.name;
-    cardElement.querySelector('.element__remove-button').addEventListener("click", removeCard);
-    cardElement.querySelector('.element__like').addEventListener("click", likeCard);
-    cardElement.querySelector('.element__image').addEventListener("click",openImgPopup);
+    cardElement.querySelector('.card__remove-button').addEventListener("click", removeCard);
+    cardElement.querySelector('.card__like').addEventListener("click", likeCard);
+    cardElement.querySelector('.card__image').addEventListener("click",openImgPopup);
     return cardElement;
 }
 
 function likeCard(event) {
-    event.target.classList.toggle('element__like_active');
+    event.target.classList.toggle('card__like_active');
 }
 
 function addCards(cards) {
@@ -112,7 +112,7 @@ function addCards(cards) {
 }
 
 function removeCard(event) {
-    const cardElement = event.target.closest(".element");
+    const cardElement = event.target.closest(".card");
     cardElement.remove();
 }
 
