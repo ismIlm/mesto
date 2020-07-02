@@ -123,9 +123,9 @@ function addCards(cards) {
 
 editBtn.addEventListener('click', () => showPopupBio(profileTitle.textContent, profileSubtitle.textContent));
 addBtn.addEventListener('click', () => showPopupNewPlace());
-closeBtn.addEventListener('click', () => { togglePopup(popup) });
-closeBtnNewPlace.addEventListener('click', () => { togglePopup(popupNewPlace) });
-closeBtnImg.addEventListener ('click', () => { togglePopup(popupImg) });
+closeBtn.addEventListener('click', () => togglePopup(popup));
+closeBtnNewPlace.addEventListener('click', () => togglePopup(popupNewPlace));
+closeBtnImg.addEventListener('click', () => togglePopup(popupImg));
 formElement.addEventListener('submit', bioFormSubmitHandler); 
 formElementNewPlace.addEventListener('submit', newPlaceFormSubmitHandler); 
 addCards(cards);
