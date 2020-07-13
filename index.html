@@ -46,38 +46,48 @@
                 </div>
             </article>
         </template>
-        
+
         <section class="popup popup_profile">
             <div class="popup__form">
                 <button type="button" class="popup__btn-close"></button>
                 <form class="popup__container">
                     <h2 class="popup__title">Редактировать профиль</h2>
-                    <input type="text" class="popup__text popup__text_type_name">
-                    <input type="text" class="popup__text popup__text_type_job">
+                    <div class="popup__control">
+                        <input type="text" class="popup__text popup__text_type_name" required minlength="2" maxlength="40">
+                        <span class="popup__error"></span>
+                    </div>
+                    <div class="popup__control">
+                        <input type="text" class="popup__text popup__text_type_job" required minlength="2" maxlength="200">
+                        <span class="popup__error"></span>
+                    </div>
                     <button type="submit" class="popup__btn-save">Сохранить</button>
                 </form>
             </div>
         </section>
-    
+
         <section class="popup popup_new_place">
             <div class="popup__form">
                 <button type="button" class="popup__btn-close"></button>
                 <form class="popup__container">
                     <h2 class="popup__title">Новое место</h2>
-                    <input type="text" class="popup__text popup__text_type_name" placeholder="Название">
-                    <input type="text" class="popup__text popup__text_type_job" placeholder="Ссылка на картинку">
+                    <input type="text" class="popup__text popup__text_type_name" placeholder="Название" required minlength="1" maxlength="30">
+                    <input type="url" class="popup__text popup__text_type_job" placeholder="Ссылка на картинку" required>
                     <button type="submit" class="popup__btn-save">Создать</button>
                 </form>
             </div>
         </section>
-    
+
         <section class="popup popup_img">
             <div class="popup__img-container">
                 <button type="button" class="popup__btn-close"></button>
                 <img src="" alt="" class="popup__big-image">
                 <figcaption class="popup__figcaption"></figcaption>
             </div>
-        </section>       
+        </section>
+
+        <script src="./scripts/validate.js">
+        </script>
+
         <script src="./scripts/script.js">
         </script>
 </body>
