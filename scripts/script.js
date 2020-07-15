@@ -1,5 +1,5 @@
 const profileInfo = document.querySelector('.profile__info'); 
-const editBtn = profileInfo.querySelector('.profile__edit'); 
+const editFormButton = profileInfo.querySelector('.profile__edit'); 
 const popup = document.querySelector('.popup'); 
 const closeBtn = popup.querySelector('.popup__btn-close'); 
 const formElement = popup.querySelector('.popup__container');
@@ -8,7 +8,7 @@ const profileTitle = document.querySelector('.profile__title');
 const profileSubtitle = document.querySelector('.profile__subtitle'); 
 const nameInput = popup.querySelector('.popup__text_type_name'); 
 const infoInput = popup.querySelector('.popup__text_type_job');
-const addBtn = document.querySelector('.profile__add-button');
+const AddFormButton = document.querySelector('.profile__add-button');
 
 
 const popupNewPlace = document.querySelector('.popup_new_place');
@@ -121,8 +121,8 @@ function addCards(cards) {
     cards.forEach(card => cardsContainer.prepend(createCard(card)));
 }
 
-editBtn.addEventListener('click', () => showPopupBio(profileTitle.textContent, profileSubtitle.textContent));
-addBtn.addEventListener('click', () => showPopupNewPlace());
+editFormButton.addEventListener('click', () => showPopupBio(profileTitle.textContent, profileSubtitle.textContent));
+AddFormButton.addEventListener('click', () => showPopupNewPlace());
 closeBtn.addEventListener('click', () => togglePopup(popup));
 closeBtnNewPlace.addEventListener('click', () => togglePopup(popupNewPlace));
 closeBtnImg.addEventListener('click', () => togglePopup(popupImg));
