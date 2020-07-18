@@ -1,73 +1,60 @@
-// Объект с настройками валидации
-const enableValidation = {
-    formSelector: '.popup__container',
-    inputSelector: '.popup__btn-close',
-    buttonSelector: '.popup__btn-save',
-    inactiveButtonClass: 'popup__btn-save_inactive',
-    inputErrorClass: '.popup__error',
-    errorClass: 'popup__error_active'
-  }
-  
-  // Переменные для работы с карточками
-  const cards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-        alt: 'Архыз'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-        alt: 'Челябинская область'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
-        alt: 'Иваново'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-        alt: 'Камчатка'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-        alt: 'Холмогорский район'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
-        alt: 'Байкал'
+const showInputError = (formElement, inputElement, errorMessage) => {
+    // Находим элемент ошибки внутри самой функции
+    const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+    // Остальной код такой же
+    inputElement.classList.add('popup__text_type_error');
+    errorElement.textContent = errorMessage;
+    errorElement.classList.add('popup__text-error_active');
+};
+
+const hideInputError = (formElement, inputElement) => {
+    // Находим элемент ошибки
+    const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
+    // Остальной код такой же
+    inputElement.classList.remove('popup__text_type_error');
+    errorElement.classList.remove('popup__text-error_active');
+    errorElement.textContent = '';
+};
+
+const isValid = (formElement, inputElement) => {
+    if (!inputElement.validity.valid) {
+        // showInputError теперь получает параметром форму, в которой
+        // находится проверяемое поле, и само это поле
+        showInputError(formElement, inputElement, inputElement.validationMessage);
+    } else {
+        // hideInputError теперь получает параметром форму, в которой
+        // находится проверяемое поле, и само это поле
+        hideInputError(formElement, inputElement);
     }
-  ];
+};
 
-  const cardTemplate = document.querySelector('#card-template').content;
-  const cardsContainer = document.querySelector('.card-container');
+const setEventListeners = (formElement) => {
+    // Находим все поля внутри формы,
+    // сделаем из них массив методом Array.from
+    const inputList = Array.from(formElement.querySelectorAll('.popup__text'));
 
-
-// const popup = document.querySelector('.popup'); 
-// const closeBtn = popup.querySelector('.popup__btn-close'); 
-// const formElement = popup.querySelector('.popup__container');
-
-// const profileTitle = document.querySelector('.profile__title'); 
-// const profileSubtitle = document.querySelector('.profile__subtitle'); 
-// const nameInput = popup.querySelector('.popup__text_type_name'); 
-// const infoInput = popup.querySelector('.popup__text_type_job');
-
-// const popupNewPlace = document.querySelector('.popup_new_place');
-// const closeBtnNewPlace = popupNewPlace.querySelector('.popup__btn-close'); 
-// const formElementNewPlace = popupNewPlace.querySelector('.popup__container');
-// const nameInputNewPlace = popupNewPlace.querySelector('.popup__text_type_name');
-// const lincInputNewPlace = popupNewPlace.querySelector('.popup__text_type_job');
+    // Обойдём все элементы полученной коллекции
+    inputList.forEach((inputElement) => {
+        // каждому полю добавим обработчик события input
+        inputElement.addEventListener('input', () => {
+            // Внутри колбэка вызовем isValid,
+            // передав ей форму и проверяемый элемент
+            isValid(formElement, inputElement)
+        });
+    });
+};
 
 
-   // Переменные для кнопок
-  const addBtn = document.querySelector('.profile__add-button');
-  const editFormButton = document.querySelector('.profile__edit');
-  
+const enableValidation = () => {
+    const formList = Array.from(document.querySelectorAll('.popup__container'));
 
-  
+    formList.forEach((formElement) => {
+        formElement.addEventListener('submit', (evt) => {
+            evt.preventDefault();
+        });
 
-  
-  
+        setEventListeners(formElement);
+    });
+};
+
+enableValidation();

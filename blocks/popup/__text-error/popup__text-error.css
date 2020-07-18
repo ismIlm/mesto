@@ -1,4 +1,4 @@
-.popup__error {
+.popup__text-error {
     display: block;
     height: 12px;
     box-sizing: border-box;
@@ -6,4 +6,9 @@
     font-size: 12px;
     line-height: 14px;
     color: #FF0000;
+    min-height: 1em;
+}
+
+.popup__text-error:empty::before {
+    content: "\200b";
 }
