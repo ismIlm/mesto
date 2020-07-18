@@ -54,8 +54,52 @@ const cards = [
     }
 ];
 
+const closePopupHandler = (evt, popup) => {
+    if (evt.target.classList.contains('popup')) {
+        togglePopup(popup)
+    }
+}
+
+const popupIsOpened = (popupElement) => {
+    if (popupElement.classList.contains('popup_opened')) {
+        return true;
+    }
+    return false;
+}
+
+const closePopupIfOpened = (popupElement) => {
+    if (popupIsOpened(popupElement)) {
+        togglePopup(popupElement);
+        return true;
+    }
+    return false;
+}
+
+/* const closePopupOnEscHandler = (evt, popupElement) => {
+    evt.preventDefault();
+    if (evt.key == "Escape") {
+        closePopupIfOpened(popupElement);
+    }
+} */
+
+const closePopupOnDocEscHandler = (evt) => {
+    evt.preventDefault();
+    if (evt.key == "Escape") {
+        const res = allPopups.some((popupElement) => {
+            return closePopupIfOpened(popupElement);
+        });
+        if (res) {
+            document.removeEventListener('keyup', closePopupOnDocEscHandler);
+        }
+    }
+}
+
 function togglePopup(localPopup) {
     localPopup.classList.toggle('popup_opened');
+}
+
+function addPopupEscListener() {
+    document.addEventListener('keyup', closePopupOnDocEscHandler);
 }
 
 function showPopupBio(fullName, info) {
@@ -64,12 +108,16 @@ function showPopupBio(fullName, info) {
 
     toggleButtonStateWithForm(formElement, bioPopupBtn);
 
+    addPopupEscListener();
+
     togglePopup(popup);
 }
 
 function showPopupNewPlace() {
     nameInputNewPlace.value = "";
     lincInputNewPlace.value = "";
+
+    addPopupEscListener();
 
     togglePopup(popupNewPlace);
 }
@@ -78,6 +126,8 @@ function openImgPopup(evt) {
     popupBigImage.src = evt.target.src;
     popupBigImage.alt = evt.target.alt;
     popupFigcaption.textContent = evt.target.alt;
+
+    addPopupEscListener();
 
     togglePopup(popupImg);
 }
@@ -126,51 +176,13 @@ function addCards(cards) {
     cards.forEach(card => cardsContainer.prepend(createCard(card)));
 }
 
-const closePopupHandler = (evt, popup) => {
-    if (evt.target.classList.contains('popup')) {
-        togglePopup(popup)
-    }
-}
-
-const popupIsOpened = (popupElement) => {
-    if (popupElement.classList.contains('popup_opened')) {
-        return true;
-    }
-    return false;
-}
-
-const closePopupIfOpened = (popupElement) => {
-    if (popupIsOpened(popupElement)) {
-        togglePopup(popupElement);
-        return true;
-    }
-    return false;
-}
-
-const closePopupOnEscHandler = (evt, popupElement) => {
-    evt.preventDefault();
-    if (evt.key == "Escape") {
-        closePopupIfOpened(popupElement);
-    }
-}
-
-const closePopupOnDocEscHandler = (evt) => {
-    evt.preventDefault();
-    if (evt.key == "Escape") {
-        const res = allPopups.some((popupElement) => {
-            return closePopupIfOpened(popupElement);
-        });
-    }
-}
-
 popup.addEventListener('click', (evt) => closePopupHandler(evt, popup));
 popupNewPlace.addEventListener('click', (evt) => closePopupHandler(evt, popupNewPlace));
 popupImg.addEventListener('click', (evt) => closePopupHandler(evt, popupImg));
 
-popup.addEventListener('keyup', (evt) => closePopupOnEscHandler(evt, popup));
+/* popup.addEventListener('keyup', (evt) => closePopupOnEscHandler(evt, popup));
 popupNewPlace.addEventListener('keyup', (evt) => closePopupOnEscHandler(evt, popupNewPlace));
-popupImg.addEventListener('keyup', (evt) => closePopupOnEscHandler(evt, popupImg));
-document.addEventListener('keyup', (evt) => closePopupOnDocEscHandler(evt));
+popupImg.addEventListener('keyup', (evt) => closePopupOnEscHandler(evt, popupImg)); */
 
 editFormButton.addEventListener('click', () => showPopupBio(profileTitle.textContent, profileSubtitle.textContent));
 AddFormButton.addEventListener('click', () => showPopupNewPlace());
