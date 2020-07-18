@@ -124,6 +124,16 @@ function addCards(cards) {
     cards.forEach(card => cardsContainer.prepend(createCard(card)));
 }
 
+const closePopupHandler = (evt, popup) => {
+    if (evt.target.classList.contains('popup')) {
+        togglePopup(popup)
+    }
+}
+
+popup.addEventListener('click', (evt) => closePopupHandler(evt, popup));
+popupNewPlace.addEventListener('click', (evt) => closePopupHandler(evt, popupNewPlace));
+popupImg.addEventListener('click', (evt) => closePopupHandler(evt, popupImg));
+
 editFormButton.addEventListener('click', () => showPopupBio(profileTitle.textContent, profileSubtitle.textContent));
 AddFormButton.addEventListener('click', () => showPopupNewPlace());
 closeBtn.addEventListener('click', () => togglePopup(popup));
