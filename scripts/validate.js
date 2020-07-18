@@ -54,6 +54,17 @@ const toggleButtonState = (inputList, buttonElement) => {
     }
 };
 
+// Функция принимает массив полей ввода
+// и элемент кнопки, состояние которой нужно менять
+const toggleButtonStateWithForm = (formElement, buttonElement) => {
+    // Находим все поля внутри формы,
+    // сделаем из них массив методом Array.from
+    const inputList = Array.from(formElement.querySelectorAll('.popup__text'));
+
+    toggleButtonState(inputList, buttonElement);
+};
+
+
 const setEventListeners = (formElement) => {
     // Находим все поля внутри формы,
     // сделаем из них массив методом Array.from

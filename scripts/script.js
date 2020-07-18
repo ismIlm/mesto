@@ -3,6 +3,7 @@ const editFormButton = profileInfo.querySelector('.profile__edit');
 const popup = document.querySelector('.popup'); 
 const closeBtn = popup.querySelector('.popup__btn-close'); 
 const formElement = popup.querySelector('.popup__container');
+const bioPopupBtn = popup.querySelector('.popup__btn-save');
 
 const profileTitle = document.querySelector('.profile__title'); 
 const profileSubtitle = document.querySelector('.profile__subtitle'); 
@@ -58,6 +59,8 @@ function togglePopup(localPopup) {
 function showPopupBio(fullName, info) {
     nameInput.value = fullName;
     infoInput.value = info;
+
+    toggleButtonStateWithForm(formElement, bioPopupBtn);
     
     togglePopup(popup);
 }
