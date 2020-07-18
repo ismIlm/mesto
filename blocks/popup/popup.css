@@ -10,6 +10,8 @@
 @import url(./__figcaption/popup__figcaption.css);
 @import url(./__text-error/popup__text-error.css);
 @import url(./__control/popup__control.css);
+@import url(./__form-submit/popup__form-submit.css);
+@import url(./__form-submit/_inactive/popup__form-submit_inactive.css);
 
 .popup {
     display: flex;

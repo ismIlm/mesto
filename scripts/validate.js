@@ -28,10 +28,40 @@ const isValid = (formElement, inputElement) => {
     }
 };
 
+const hasInvalidInput = (inputList) => {
+    // проходим по этому массиву методом some
+    return inputList.some((inputElement) => {
+        // Если поле не валидно, колбэк вернёт true
+        // Обход массива прекратится и вся фунцкция
+        // hasInvalidInput вернёт true
+
+        return !inputElement.validity.valid;
+    })
+};
+
+// Функция принимает массив полей ввода
+// и элемент кнопки, состояние которой нужно менять
+const toggleButtonState = (inputList, buttonElement) => {
+    // Если есть хотя бы один невалидный инпут
+    if (hasInvalidInput(inputList)) {
+        // сделай кнопку неактивной
+        buttonElement.classList.add('popup__form-submit_inactive');
+        buttonElement.disabled = true;
+    } else {
+        // иначе сделай кнопку активной
+        buttonElement.classList.remove('popup__form-submit_inactive');
+        buttonElement.disabled = false;
+    }
+};
+
 const setEventListeners = (formElement) => {
     // Находим все поля внутри формы,
     // сделаем из них массив методом Array.from
     const inputList = Array.from(formElement.querySelectorAll('.popup__text'));
+    // Найдём в текущей форме кнопку отправки
+    const buttonElement = formElement.querySelector('button[type="submit"]');
+
+    toggleButtonState(inputList, buttonElement);
 
     // Обойдём все элементы полученной коллекции
     inputList.forEach((inputElement) => {
@@ -39,11 +69,13 @@ const setEventListeners = (formElement) => {
         inputElement.addEventListener('input', () => {
             // Внутри колбэка вызовем isValid,
             // передав ей форму и проверяемый элемент
-            isValid(formElement, inputElement)
+            isValid(formElement, inputElement);
+
+            // Вызовем toggleButtonState и передадим ей массив полей и кнопку
+            toggleButtonState(inputList, buttonElement);
         });
     });
 };
-
 
 const enableValidation = () => {
     const formList = Array.from(document.querySelectorAll('.popup__container'));
