@@ -109,6 +109,7 @@ function showPopupBio(fullName, info) {
     toggleButtonStateWithForm(formElement, bioPopupBtn);
 
     addPopupEscListener();
+    resetValidationErrors(popup, validationParams);
 
     togglePopup(popup);
 }
@@ -118,6 +119,7 @@ function showPopupNewPlace() {
     lincInputNewPlace.value = "";
 
     addPopupEscListener();
+    resetValidationErrors(popupNewPlace, validationParams);
 
     togglePopup(popupNewPlace);
 }

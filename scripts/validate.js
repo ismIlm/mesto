@@ -111,4 +111,17 @@ const enableValidation = (params) => {
     });
 };
 
+const resetValidationErrors = (formElement, params) => {
+    // Находим все поля внутри формы,
+    // сделаем из них массив методом Array.from
+    const inputList = Array.from(formElement.querySelectorAll(params.inputSelector));
+    const buttonElement = formElement.querySelector(params.submitButtonSelector);
+
+    // Обойдём все элементы полученной коллекции
+    inputList.forEach((inputElement) => {
+        isValid(formElement, inputElement, params.inputErrorClass, params.errorClass);
+        toggleButtonState(inputList, buttonElement, params.inactiveButtonClass);
+    });
+}
+
 enableValidation(validationParams);
