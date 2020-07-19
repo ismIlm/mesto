@@ -119,7 +119,7 @@ const resetValidationErrors = (formElement, params) => {
 
     // Обойдём все элементы полученной коллекции
     inputList.forEach((inputElement) => {
-        isValid(formElement, inputElement, params.inputErrorClass, params.errorClass);
+        hideInputError(formElement, inputElement, params.inputErrorClass, params.errorClass);
         toggleButtonState(inputList, buttonElement, params.inactiveButtonClass);
     });
 };

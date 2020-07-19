@@ -34,38 +34,34 @@ const closePopupHandler = (evt, popup) => {
 };
 
 const popupIsOpened = (popupElement) => {
-    if (popupElement.classList.contains('popup_opened')) {
-        return true;
-    }
-    return false;
-};
-
-const closePopupIfOpened = (popupElement) => {
-    if (popupIsOpened(popupElement)) {
-        togglePopup(popupElement);
-        return true;
-    }
-    return false;
+    return popupElement.classList.contains('popup_opened');
 };
 
 const closePopupOnDocEscHandler = (evt) => {
     evt.preventDefault();
     if (evt.key == "Escape") {
-        const res = allPopups.some((popupElement) => {
-            return closePopupIfOpened(popupElement);
-        });
-        if (res) {
-            document.removeEventListener('keyup', closePopupOnDocEscHandler);
-        }
-    }
+        const popupElement = allPopups.find(popupElement => popupIsOpened(popupElement));
+        if (popupElement) {
+            togglePopup(popupElement);
+        };
+    };
 };
-
-function togglePopup(localPopup) {
-    localPopup.classList.toggle('popup_opened');
-}
 
 function addPopupEscListener() {
     document.addEventListener('keyup', closePopupOnDocEscHandler);
+}
+
+function removePopupEscListener() {
+    document.removeEventListener('keyup', closePopupOnDocEscHandler);
+}
+
+function togglePopup(localPopup) {
+    if (popupIsOpened(localPopup)) {
+        removePopupEscListener();
+    } else {
+        addPopupEscListener();
+    }
+    localPopup.classList.toggle('popup_opened');
 }
 
 function showPopupBio(fullName, info) {
@@ -74,7 +70,6 @@ function showPopupBio(fullName, info) {
 
     toggleButtonStateWithForm(formElement, bioPopupBtn);
 
-    addPopupEscListener();
     resetValidationErrors(popup, validationParams);
 
     togglePopup(popup);
@@ -84,7 +79,6 @@ function showPopupNewPlace() {
     nameInputNewPlace.value = "";
     lincInputNewPlace.value = "";
 
-    addPopupEscListener();
     resetValidationErrors(popupNewPlace, validationParams);
 
     togglePopup(popupNewPlace);
@@ -94,8 +88,6 @@ function openImgPopup(evt) {
     popupBigImage.src = evt.target.src;
     popupBigImage.alt = evt.target.alt;
     popupFigcaption.textContent = evt.target.alt;
-
-    addPopupEscListener();
 
     togglePopup(popupImg);
 }
