@@ -27,45 +27,18 @@ const cardTemplate = document.querySelector('#card-template').content;
 
 const allPopups = Array.from(document.querySelectorAll('.popup'));
 
-const cards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
-
 const closePopupHandler = (evt, popup) => {
     if (evt.target.classList.contains('popup')) {
-        togglePopup(popup)
+        togglePopup(popup);
     }
-}
+};
 
 const popupIsOpened = (popupElement) => {
     if (popupElement.classList.contains('popup_opened')) {
         return true;
     }
     return false;
-}
+};
 
 const closePopupIfOpened = (popupElement) => {
     if (popupIsOpened(popupElement)) {
@@ -73,14 +46,7 @@ const closePopupIfOpened = (popupElement) => {
         return true;
     }
     return false;
-}
-
-/* const closePopupOnEscHandler = (evt, popupElement) => {
-    evt.preventDefault();
-    if (evt.key == "Escape") {
-        closePopupIfOpened(popupElement);
-    }
-} */
+};
 
 const closePopupOnDocEscHandler = (evt) => {
     evt.preventDefault();
@@ -92,7 +58,7 @@ const closePopupOnDocEscHandler = (evt) => {
             document.removeEventListener('keyup', closePopupOnDocEscHandler);
         }
     }
-}
+};
 
 function togglePopup(localPopup) {
     localPopup.classList.toggle('popup_opened');
@@ -182,9 +148,6 @@ popup.addEventListener('click', (evt) => closePopupHandler(evt, popup));
 popupNewPlace.addEventListener('click', (evt) => closePopupHandler(evt, popupNewPlace));
 popupImg.addEventListener('click', (evt) => closePopupHandler(evt, popupImg));
 
-/* popup.addEventListener('keyup', (evt) => closePopupOnEscHandler(evt, popup));
-popupNewPlace.addEventListener('keyup', (evt) => closePopupOnEscHandler(evt, popupNewPlace));
-popupImg.addEventListener('keyup', (evt) => closePopupOnEscHandler(evt, popupImg)); */
 
 editFormButton.addEventListener('click', () => showPopupBio(profileTitle.textContent, profileSubtitle.textContent));
 AddFormButton.addEventListener('click', () => showPopupNewPlace());

@@ -47,7 +47,7 @@ const hasInvalidInput = (inputList) => {
         // hasInvalidInput вернёт true
 
         return !inputElement.validity.valid;
-    })
+    });
 };
 
 // Функция принимает массив полей ввода
@@ -122,6 +122,6 @@ const resetValidationErrors = (formElement, params) => {
         isValid(formElement, inputElement, params.inputErrorClass, params.errorClass);
         toggleButtonState(inputList, buttonElement, params.inactiveButtonClass);
     });
-}
+};
 
 enableValidation(validationParams);
