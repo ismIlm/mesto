@@ -1,36 +1,42 @@
-const profileInfo = document.querySelector('.profile__info');
-const editFormButton = profileInfo.querySelector('.profile__edit');
-const popup = document.querySelector('.popup');
-const closeBtn = popup.querySelector('.popup__btn-close');
-const formElement = popup.querySelector('.popup__container');
-const bioPopupBtn = popup.querySelector('.popup__btn-save');
+// // переменные секции "Профиль"
+// const profileInfo = document.querySelector('.profile__info');
+// const editFormButton = profileInfo.querySelector('.profile__edit');
+// const profileTitle = document.querySelector('.profile__title');
+// const profileSubtitle = document.querySelector('.profile__subtitle');
 
-const profileTitle = document.querySelector('.profile__title');
-const profileSubtitle = document.querySelector('.profile__subtitle');
-const nameInput = popup.querySelector('.popup__text_type_name');
-const infoInput = popup.querySelector('.popup__text_type_job');
-const AddFormButton = document.querySelector('.profile__add-button');
+// // переменные секции "popup_profile"
+// const nameInput = popup.querySelector('.popup__text_type_name');
+// const infoInput = popup.querySelector('.popup__text_type_job');
+// const AddFormButton = document.querySelector('.profile__add-button');
+
+// // переменные к секции "popup_new_place"
+// const popupNewPlace = document.querySelector('.popup_new_place');
+// const closeBtnNewPlace = popupNewPlace.querySelector('.popup__btn-close');
+// const formElementNewPlace = popupNewPlace.querySelector('.popup__container');
+// const nameInputNewPlace = popupNewPlace.querySelector('.popup__text_type_name');
+// const lincInputNewPlace = popupNewPlace.querySelector('.popup__text_type_job');
+
+// // переменные к секции "popup_img"
+// const popupImg = document.querySelector(".popup_img");
+// const closeBtnImg = popupImg.querySelector(".popup__btn-close");
+// const popupBigImage = document.querySelector(".popup__big-image");
+// const popupFigcaption = document.querySelector(".popup__figcaption");
+
+// // переменные к карточкам
+// const cardsContainer = document.querySelector('.card-container');
+// const cardTemplate = document.querySelector('#card-template').content;
+// const cardImage = document.querySelector('.card__image');  // новая переменная
+
+// // общие переменные
+// const allPopups = Array.from(document.querySelectorAll('.popup'));
 
 
-const popupNewPlace = document.querySelector('.popup_new_place');
-const closeBtnNewPlace = popupNewPlace.querySelector('.popup__btn-close');
-const formElementNewPlace = popupNewPlace.querySelector('.popup__container');
-const nameInputNewPlace = popupNewPlace.querySelector('.popup__text_type_name');
-const lincInputNewPlace = popupNewPlace.querySelector('.popup__text_type_job');
 
-const popupImg = document.querySelector(".popup_img");
-const closeBtnImg = popupImg.querySelector(".popup__btn-close");
-const popupBigImage = document.querySelector(".popup__big-image");
-const popupFigcaption = document.querySelector(".popup__figcaption");
-const cardsContainer = document.querySelector('.card-container');
-const cardTemplate = document.querySelector('#card-template').content;
-
-
-const aCard = new Card(data, template);
-
-
-
-const allPopups = Array.from(document.querySelectorAll('.popup'));
+//импорт переменных в любой(?) файл (нужно ли импортировать все указанные переменные?)
+export {profileInfo, editFormButton, popup, closeBtn, formElement, bioPopupBtn, 
+profileTitle, profileSubtitle, nameInput, infoInput, AddFormButton, 
+popupNewPlace, closeBtnNewPlace, formElementNewPlace, nameInputNewPlace, lincInputNewPlace,
+popupImg, closeBtnImg, popupBigImage, popupFigcaption, cardsContainer, cardTemplate, allPopups};
 
 const closePopupHandler = (evt, popup) => {
     if (evt.target.classList.contains('popup')) {
@@ -110,21 +116,7 @@ function removeCard(event) {
     cardElement.remove();
 }
 
-function likeCard(event) {
-    event.target.classList.toggle('card__like_active');
-}
 
-function createCard(item) {
-    const cardElement = cardTemplate.cloneNode(true);
-    cardElement.querySelector('.card__title').textContent = item.name;
-    const elementImg = cardElement.querySelector('.card__image');
-    elementImg.src = item.link;
-    elementImg.alt = item.name;
-    cardElement.querySelector('.card__remove-button').addEventListener("click", removeCard);
-    cardElement.querySelector('.card__like').addEventListener("click", likeCard);
-    elementImg.addEventListener("click", openImgPopup);
-    return cardElement;
-}
 
 function newPlaceFormSubmitHandler(evt) {
     evt.preventDefault();
