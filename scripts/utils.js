@@ -1,5 +1,7 @@
 // здесь должны быть попапы
-import { popup, popupNewPlace, popupImg } from './constants.js';
+import { popup, popupNewPlace, popupImg, popupBigImage, editFormButton, nameInputNewPlace, lincInputNewPlace, profileTitle, profileSubtitle,
+    nameInput, infoInput, formElement, bioPopupBtn, } from './constants.js';
+import { resetValidationErrors, validationParams, toggleButtonStateWithForm } from './validate.js';
 
 const closePopupHandler = (evt, popup) => {
     if (evt.target.classList.contains('popup')) {
@@ -93,4 +95,7 @@ export {
     bioFormSubmitHandler,
     newPlaceFormSubmitHandler,
     openImgPopup,
+    showPopupBio,
+    showPopupNewPlace,
+    togglePopup,
 };

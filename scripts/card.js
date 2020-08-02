@@ -16,7 +16,6 @@ export class Card {
     constructor (rawCardData, templateSelector) {
         this._name = rawCardData.name;
         this._link = rawCardData.link;
-        //this._templateSelector = templateSelector;
         this._cardTemplate = document.querySelector(templateSelector).content;
 
         this._createCard();
