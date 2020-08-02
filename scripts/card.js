@@ -1,32 +1,41 @@
-//import * as all from './data.js';
-import {cardElement, cardTemplate} from './constants.js';
+import { openImgPopup } from "./utils.js";
 
-class Card {
-    constructor (data, template) {
-        this.name = name;
-        this.link = link;
-        this.template = template;
-    }
+export class Card {
+    _createCard() {
+        this._cardElement = this._cardTemplate.cloneNode(true);
+        this._cardElement.querySelector('.card__title').textContent = this._name;
+        const elementImg = this._cardElement.querySelector('.card__image');
+        elementImg.src = this._link;
+        elementImg.alt = this._name;
 
-    createCard(item) {
-        const cardElement = cardTemplate.cloneNode(true);
-        cardElement.querySelector('.card__title').textContent = item.name;
-        const elementImg = cardElement.querySelector('.card__image');
-        elementImg.src = item.link;
-        elementImg.alt = item.name;
-        cardElement.querySelector('.card__remove-button').addEventListener("click", removeCard);
-        cardElement.querySelector('.card__like').addEventListener("click", likeCard);
+        this._cardElement.querySelector('.card__remove-button').addEventListener("click", this._removeCard);
+        this._cardElement.querySelector('.card__like').addEventListener("click", this._likeCard);
         elementImg.addEventListener("click", openImgPopup);
-        return cardElement;
     }
 
-    cards.forEach(card => cardsContainer.prepend(createCard(card)));
+    constructor (rawCardData, templateSelector) {
+        this._name = rawCardData.name;
+        this._link = rawCardData.link;
+        //this._templateSelector = templateSelector;
+        this._cardTemplate = document.querySelector(templateSelector).content;
+
+        this._createCard();
+    }
+
+    getHtmlNode() {
+        return this._cardElement;
+    }
+
     
-    likeCard(event) {
+    _removeCard(event) {
+        const cardElement = event.target.closest(".card");
+        cardElement.remove();
+    }
+    
+    _likeCard(event) {
         event.target.classList.toggle('card__like_active');
     }
 
     
 }
 
-//editFormButton.addEventListener('click', () => showPopupBio(profileTitle.textContent, profileSubtitle.textContent));

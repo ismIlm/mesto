@@ -1,3 +1,5 @@
+const popup = document.querySelector('.popup');
+
 const profileInfo = document.querySelector('.profile__info');
 const editFormButton = profileInfo.querySelector('.profile__edit');
 const profileTitle = document.querySelector('.profile__title');
@@ -6,7 +8,7 @@ const profileSubtitle = document.querySelector('.profile__subtitle');
 // переменные секции "popup_profile"
 const nameInput = popup.querySelector('.popup__text_type_name');
 const infoInput = popup.querySelector('.popup__text_type_job');
-const AddFormButton = document.querySelector('.profile__add-button');
+const addFormButton = document.querySelector('.profile__add-button');
 
 // переменные к секции "popup_new_place"
 const popupNewPlace = document.querySelector('.popup_new_place');
@@ -29,13 +31,8 @@ const cardImage = document.querySelector('.card__image');  // новая пер�
 // общие переменные
 const allPopups = Array.from(document.querySelectorAll('.popup'));
 
-
-
-//импорт переменных в любой(?) файл (нужно ли импортировать все указанные переменные?)
-export {profileInfo, editFormButton, popup, closeBtn, formElement, bioPopupBtn, 
-profileTitle, profileSubtitle, nameInput, infoInput, AddFormButton, 
-popupNewPlace, closeBtnNewPlace, formElementNewPlace, nameInputNewPlace, lincInputNewPlace,
-popupImg, closeBtnImg, popupBigImage, popupFigcaption, cardsContainer, cardTemplate, allPopups};
-
-
-//export {all};
+export { 
+    popup,
+    popupNewPlace,
+    popupImg,
+ };
