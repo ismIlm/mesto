@@ -30,3 +30,12 @@ export const cardImage = document.querySelector('.card__image');
 export const allPopups = Array.from(document.querySelectorAll('.popup'));
 
 export const errorElementClassSuffix = '-error';
+
+export const validationParams = {
+    formSelector: '.popup__container',
+    inputSelector: '.popup__text',
+    submitButtonSelector: '.popup__btn-save',
+    inactiveButtonClass: 'popup__form-submit_inactive',
+    inputErrorClass: 'popup__text_type_error',
+    errorClass: 'popup__text-error_active'
+};

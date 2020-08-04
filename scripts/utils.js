@@ -1,7 +1,26 @@
 // здесь должны быть попапы
-import { popup, popupNewPlace, popupImg, popupBigImage, editFormButton, nameInputNewPlace, lincInputNewPlace, profileTitle, profileSubtitle,
-    nameInput, infoInput, formElement, bioPopupBtn, } from './constants.js';
-import { resetValidationErrors, validationParams, toggleButtonStateWithForm } from './validate.js';
+import {
+    bioPopupBtn,
+    editFormButton,
+    formElement,
+    formElementNewPlace,
+    infoInput,
+    lincInputNewPlace,
+    nameInput,
+    nameInputNewPlace,
+    popup,
+    popupBigImage,
+    popupFigcaption,
+    popupImg,
+    popupNewPlace,
+    profileSubtitle,
+    profileTitle,
+    validationParams,
+} from './constants.js';
+import {
+    resetValidationErrors,
+    formValidators,
+} from './validate.js';
 
 const closePopupHandler = (evt, popup) => {
     if (evt.target.classList.contains('popup')) {
@@ -44,9 +63,10 @@ function showPopupBio(fullName, info) {
     nameInput.value = fullName;
     infoInput.value = info;
 
-    toggleButtonStateWithForm(formElement, bioPopupBtn);
+    //toggleButtonStateWithForm(formElement, bioPopupBtn);
+    formValidators[formElement.id]._toggleButtonStateWithForm(formElement, bioPopupBtn);
 
-    resetValidationErrors(popup, validationParams);
+    resetValidationErrors(formElement, validationParams);
 
     togglePopup(popup);
 }
@@ -55,7 +75,7 @@ function showPopupNewPlace() {
     nameInputNewPlace.value = "";
     lincInputNewPlace.value = "";
 
-    resetValidationErrors(popupNewPlace, validationParams);
+    resetValidationErrors(formElementNewPlace, validationParams);
 
     togglePopup(popupNewPlace);
 }

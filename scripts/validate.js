@@ -1,15 +1,7 @@
 import { FormValidator } from './formValidator.js';
+import { errorElementClassSuffix, validationParams } from './constants.js';
 
-const validationParams = {
-    formSelector: '.popup__container',
-    inputSelector: '.popup__text',
-    submitButtonSelector: '.popup__btn-save',
-    inactiveButtonClass: 'popup__form-submit_inactive',
-    inputErrorClass: 'popup__text_type_error',
-    errorClass: 'popup__text-error_active'
-};
-
-const errorElementClassSuffix = '-error';
+let formValidators = {};
 
 const showInputError = (formElement, inputElement, errorMessage, inputErrorClass, errorTextClass) => {
     // Находим элемент ошибки внутри самой функции
@@ -109,10 +101,12 @@ const resetValidationErrors = (formElement, params) => {
     const inputList = Array.from(formElement.querySelectorAll(params.inputSelector));
     const buttonElement = formElement.querySelector(params.submitButtonSelector);
 
+    const formValidator = formValidators[formElement.id];
+
     // Обойдём все элементы полученной коллекции
     inputList.forEach((inputElement) => {
-        hideInputError(formElement, inputElement, params.inputErrorClass, params.errorClass);
-        toggleButtonState(inputList, buttonElement, params.inactiveButtonClass);
+        formValidator._hideInputError(formElement, inputElement, params.inputErrorClass, params.errorClass);
+        formValidator._toggleButtonState(inputList, buttonElement, params.inactiveButtonClass);
     });
 };
 
@@ -128,11 +122,15 @@ const enableValidation = (params) => {
 
         const formValidator = new FormValidator(params, formElement);
         formValidator.enableValidation();
+        formValidators[formElement.id] = formValidator;
     });
 };
 
 
 enableValidation(validationParams);
     
-    
-export { resetValidationErrors, validationParams, toggleButtonStateWithForm, };
+export {
+    formValidators,
+    resetValidationErrors,
+    toggleButtonStateWithForm,
+};

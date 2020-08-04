@@ -1,4 +1,4 @@
-import { errorElementClassSuffix } from './constants.js';
+import { errorElementClassSuffix, validationParams } from './constants.js';
 
 class FormValidator {
     constructor(params, formElement) {
