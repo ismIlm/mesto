@@ -1,3 +1,5 @@
+import { FormValidator } from './formValidator.js';
+
 const validationParams = {
     formSelector: '.popup__container',
     inputSelector: '.popup__text',
@@ -13,18 +15,20 @@ const showInputError = (formElement, inputElement, errorMessage, inputErrorClass
     // Находим элемент ошибки внутри самой функции
     const errorElement = formElement.querySelector(`#${inputElement.id}${errorElementClassSuffix}`);
     // Остальной код такой же
-    inputElement.classList.add(inputErrorClass);
     errorElement.classList.add(errorTextClass);
     errorElement.textContent = errorMessage;
+
+    inputElement.classList.add(inputErrorClass);
 };
 
 const hideInputError = (formElement, inputElement, inputErrorClass, errorTextClass) => {
     // Находим элемент ошибки
     const errorElement = formElement.querySelector(`#${inputElement.id}${errorElementClassSuffix}`);
     // Остальной код такой же
-    inputElement.classList.remove(inputErrorClass);
     errorElement.classList.remove(errorTextClass);
     errorElement.textContent = '';
+
+    inputElement.classList.remove(inputErrorClass);
 };
 
 const isValid = (formElement, inputElement, inputErrorClass, errorTextClass) => {
@@ -99,18 +103,6 @@ const setEventListeners = (formElement, params) => {
     });
 };
 
-const enableValidation = (params) => {
-    const formList = Array.from(document.querySelectorAll(params.formSelector));
-
-    formList.forEach((formElement) => {
-        formElement.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-        });
-
-        setEventListeners(formElement, params);
-    });
-};
-
 const resetValidationErrors = (formElement, params) => {
     // Находим все поля внутри формы,
     // сделаем из них массив методом Array.from
@@ -123,6 +115,22 @@ const resetValidationErrors = (formElement, params) => {
         toggleButtonState(inputList, buttonElement, params.inactiveButtonClass);
     });
 };
+
+const enableValidation = (params) => {
+    const formList = Array.from(document.querySelectorAll(params.formSelector));
+
+    formList.forEach((formElement) => {
+        // formElement.addEventListener('submit', (evt) => {
+        //     evt.preventDefault();
+        // });
+
+        // setEventListeners(formElement, params);
+
+        const formValidator = new FormValidator(params, formElement);
+        formValidator.enableValidation();
+    });
+};
+
 
 enableValidation(validationParams);
     

@@ -8,51 +8,25 @@ export const editFormButton = profileInfo.querySelector('.profile__edit');
 export const profileTitle = document.querySelector('.profile__title');
 export const profileSubtitle = document.querySelector('.profile__subtitle');
 
-// переменные секции "popup_profile"
 export const nameInput = popup.querySelector('.popup__text_type_name');
 export const infoInput = popup.querySelector('.popup__text_type_job');
 export const addFormButton = document.querySelector('.profile__add-button');
 
-// переменные к секции "popup_new_place"
 export const popupNewPlace = document.querySelector('.popup_new_place');
 export const closeBtnNewPlace = popupNewPlace.querySelector('.popup__btn-close');
 export const formElementNewPlace = popupNewPlace.querySelector('.popup__container');
 export const nameInputNewPlace = popupNewPlace.querySelector('.popup__text_type_name');
 export const lincInputNewPlace = popupNewPlace.querySelector('.popup__text_type_job');
 
-// переменные к секции "popup_img"
 export const popupImg = document.querySelector(".popup_img");
 export const closeBtnImg = popupImg.querySelector(".popup__btn-close");
 export const popupBigImage = document.querySelector(".popup__big-image");
 export const popupFigcaption = document.querySelector(".popup__figcaption");
 
-// переменные к карточкам
 export const cardsContainer = document.querySelector('.card-container');
 export const cardTemplate = document.querySelector('#card-template').content;
-export const cardImage = document.querySelector('.card__image');  // новая переменная
+export const cardImage = document.querySelector('.card__image');
 
-// общие переменные
 export const allPopups = Array.from(document.querySelectorAll('.popup'));
 
-// export { 
-//     popup,
-//     popupNewPlace,
-//     popupImg,
-//     popupBigImage,
-//     editFormButton,
-//     nameInputNewPlace,
-//     lincInputNewPlace,
-//     profileTitle,
-//     profileSubtitle,
-//     nameInput,
-//     infoInput,
-//     addFormButton,
-//     closeBtn,
-//     closeBtnNewPlace,
-//     closeBtnImg,
-//     formElement,
-//     formElementNewPlace,
-//     cardsContainer,
-//     bioPopupBtn,
-//     popupFigcaption,
-//  };
+export const errorElementClassSuffix = '-error';
