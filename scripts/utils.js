@@ -1,4 +1,3 @@
-// здесь должны быть попапы
 import {
     bioPopupBtn,
     editFormButton,
@@ -16,9 +15,10 @@ import {
     profileSubtitle,
     profileTitle,
     validationParams,
+    allPopups,
 } from './constants.js';
+
 import {
-    resetValidationErrors,
     formValidators,
 } from './validate.js';
 
@@ -66,7 +66,7 @@ function showPopupBio(fullName, info) {
     //toggleButtonStateWithForm(formElement, bioPopupBtn);
     formValidators[formElement.id]._toggleButtonStateWithForm(formElement, bioPopupBtn);
 
-    resetValidationErrors(formElement, validationParams);
+    formValidators[formElement.id]._resetValidationErrors(formElement, validationParams);
 
     togglePopup(popup);
 }
@@ -75,7 +75,7 @@ function showPopupNewPlace() {
     nameInputNewPlace.value = "";
     lincInputNewPlace.value = "";
 
-    resetValidationErrors(formElementNewPlace, validationParams);
+    formValidators[formElement.id]._resetValidationErrors(formElementNewPlace, validationParams);
 
     togglePopup(popupNewPlace);
 }

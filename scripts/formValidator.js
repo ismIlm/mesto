@@ -1,4 +1,6 @@
-import { errorElementClassSuffix, validationParams } from './constants.js';
+import { errorElementClassSuffix, 
+    validationParams 
+} from './constants.js';
 
 class FormValidator {
     constructor(params, formElement) {
@@ -67,7 +69,7 @@ class FormValidator {
         const buttonElement = formElement.querySelector(params.submitButtonSelector);
     
         inputList.forEach((inputElement) => {
-            hideInputError(this._form, inputElement, params.inputErrorClass, params.errorClass);
+            this._hideInputError(this._form, inputElement, params.inputErrorClass, params.errorClass);
             this._toggleButtonState(inputList, buttonElement, params.inactiveButtonClass);
         });
     }
