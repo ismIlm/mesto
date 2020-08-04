@@ -1,6 +1,6 @@
 // здесь должны быть попапы
 import { popup, popupNewPlace, popupImg, popupBigImage, editFormButton, nameInputNewPlace, lincInputNewPlace, profileTitle, profileSubtitle,
-    nameInput, infoInput, formElement, bioPopupBtn, } from './constants.js';
+    nameInput, infoInput, formElement, bioPopupBtn, popupFigcaption, } from './constants.js';
 import { resetValidationErrors, validationParams, toggleButtonStateWithForm } from './validate.js';
 
 const closePopupHandler = (evt, popup) => {
