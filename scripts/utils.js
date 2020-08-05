@@ -1,3 +1,4 @@
+import { Card } from './card.js';
 import {
     bioPopupBtn,
     editFormButton,
@@ -17,7 +18,6 @@ import {
     validationParams,
     allPopups,
     cardsContainer,
-    
 } from './constants.js';
 
 import {
@@ -105,7 +105,8 @@ function newPlaceFormSubmitHandler(evt) {
         link: lincInputNewPlace.value,
     };
     togglePopup(popupNewPlace);
-    cardsContainer.prepend(createCard(newCardData));
+    const aCard = new Card(newCardData, "#card-template");
+    cardsContainer.prepend(aCard.getHtmlNode());
     formElementNewPlace.reset();
 }
 
