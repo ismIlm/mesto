@@ -16,6 +16,8 @@ import {
     profileTitle,
     validationParams,
     allPopups,
+    cardsContainer,
+    
 } from './constants.js';
 
 import {
@@ -119,3 +121,4 @@ export {
     showPopupNewPlace,
     togglePopup,
 };
+
