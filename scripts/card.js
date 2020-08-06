@@ -1,4 +1,4 @@
-import { openImgPopup } from "./utils.js";
+import { openImgPopup } from "./index.js";
 
 export class Card {
     
@@ -36,7 +36,4 @@ export class Card {
     _likeCard(event) {
         event.target.classList.toggle('card__like_active');
     }
-
-    
 }
-
