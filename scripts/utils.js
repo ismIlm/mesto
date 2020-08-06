@@ -1,4 +1,4 @@
-import { Card } from './card.js';
+import { Card } from './Card.js';
 import {
     bioPopupBtn,
     editFormButton,
@@ -18,11 +18,11 @@ import {
     validationParams,
     allPopups,
     cardsContainer,
-} from './constants.js';
+} from './Constants.js';
 
 import {
     formValidators,
-} from './validate.js';
+} from './index.js';
 
 const closePopupHandler = (evt, popup) => {
     if (evt.target.classList.contains('popup')) {
@@ -40,7 +40,7 @@ const closePopupOnDocEscHandler = (evt) => {
         const popupElement = allPopups.find(popupElement => popupIsOpened(popupElement));
         if (popupElement) {
             togglePopup(popupElement);
-        };
+        }
     };
 };
 

@@ -1,21 +1,21 @@
-import { FormValidator } from './formValidator.js';
-import { validationParams } from './constants.js';
+// import { FormValidator } from './FormValidator.js';
+// import { validationParams } from './Constants.js';
 
-let formValidators = {};
+// let formValidators = {};
 
-const enableValidation = (params) => {
-    const formList = Array.from(document.querySelectorAll(params.formSelector));
+// const enableValidation = (params) => {
+//     const formList = Array.from(document.querySelectorAll(params.formSelector));
 
-    formList.forEach((formElement) => {
-        const formValidator = new FormValidator(params, formElement);
-        formValidator.enableValidation();
-        formValidators[formElement.id] = formValidator;
-    });
-};
+//     formList.forEach((formElement) => {
+//         const formValidator = new FormValidator(params, formElement);
+//         formValidator.enableValidation();
+//         formValidators[formElement.id] = formValidator;
+//     });
+// };
 
 
-enableValidation(validationParams);
+// enableValidation(validationParams);
     
-export {
-    formValidators,
-};
+// export {
+//     formValidators,
+// };

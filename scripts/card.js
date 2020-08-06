@@ -1,6 +1,15 @@
 import { openImgPopup } from "./utils.js";
 
 export class Card {
+    
+    constructor (rawCardData, templateSelector) {
+        this._name = rawCardData.name;
+        this._link = rawCardData.link;
+        this._cardTemplate = document.querySelector(templateSelector).content;
+
+        this._createCard();
+    }
+
     _createCard() {
         this._cardElement = this._cardTemplate.cloneNode(true);
         this._cardElement.querySelector('.card__title').textContent = this._name;
@@ -13,13 +22,6 @@ export class Card {
         elementImg.addEventListener("click", openImgPopup);
     }
 
-    constructor (rawCardData, templateSelector) {
-        this._name = rawCardData.name;
-        this._link = rawCardData.link;
-        this._cardTemplate = document.querySelector(templateSelector).content;
-
-        this._createCard();
-    }
 
     getHtmlNode() {
         return this._cardElement;

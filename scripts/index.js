@@ -15,8 +15,9 @@ import {
     profileTitle, 
     profileSubtitle, 
     bioPopupBtn,
-    profileInfo 
-} from './constants.js';
+    profileInfo, 
+    validationParams,
+} from './Constants.js';
 
 import {
     bioFormSubmitHandler,
@@ -26,16 +27,10 @@ import {
     togglePopup,
 } from './utils.js';
 
+import { FormValidator } from './FormValidator.js';
+
+
 const allPopups = Array.from(document.querySelectorAll('.popup'));
-
-function removeCard(event) {
-    const cardElement = event.target.closest(".card");
-    cardElement.remove();
-}
-
-function likeCard(event) {
-    event.target.classList.toggle('card__like_active');
-}
 
 function addCards(cards) {
     cards.forEach(card => {
@@ -43,6 +38,26 @@ function addCards(cards) {
         cardsContainer.prepend(aCard.getHtmlNode());
     }); 
 }
+
+
+let formValidators = {};
+
+const enableValidation = (params) => {
+    const formList = Array.from(document.querySelectorAll(params.formSelector));
+
+    formList.forEach((formElement) => {
+        const formValidator = new FormValidator(params, formElement);
+        formValidator.enableValidation();
+        formValidators[formElement.id] = formValidator;
+    });
+};
+
+
+enableValidation(validationParams);
+    
+export {
+    formValidators,
+};
 
 editFormButton.addEventListener('click', () => showPopupBio(profileTitle.textContent, profileSubtitle.textContent));
 addFormButton.addEventListener('click', () => showPopupNewPlace());
