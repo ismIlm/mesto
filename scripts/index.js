@@ -23,9 +23,9 @@ import {
     popupBigImage,
     popupFigcaption,
     allPopups,
-} from './Constants.js';
+} from './constants.js';
 
-import { FormValidator } from './FormValidator.js';
+import { FormValidator } from './formValidator.js';
 
 const closePopupHandler = (evt, popup) => {
     if (evt.target.classList.contains('popup')) {
