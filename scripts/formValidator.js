@@ -47,7 +47,7 @@ class FormValidator {
         } 
     }
 
-    _toggleButtonStateWithForm(formElement, buttonElement) {
+    toggleButtonStateWithForm(formElement, buttonElement) {
         const inputList = Array.from(this._form.querySelectorAll(validationParams.inputSelector));
         this._toggleButtonState(inputList, buttonElement, validationParams.inactiveButtonClass);
     }

@@ -67,10 +67,11 @@ function togglePopup(localPopup) {
 function showPopupBio(fullName, info) {
     nameInput.value = fullName;
     infoInput.value = info;
-    formValidators[formElement.id]._toggleButtonStateWithForm(formElement, bioPopupBtn);
+    formValidators[formElement.id].toggleButtonStateWithForm(formElement, bioPopupBtn);
     formValidators[formElement.id]._resetValidationErrors(formElement, validationParams);
     togglePopup(popup);
 }
+
 
 function showPopupNewPlace() {
     nameInputNewPlace.value = "";
