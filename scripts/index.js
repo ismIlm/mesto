@@ -68,15 +68,14 @@ function showPopupBio(fullName, info) {
     nameInput.value = fullName;
     infoInput.value = info;
     formValidators[formElement.id].toggleButtonStateWithForm(formElement, bioPopupBtn);
-    formValidators[formElement.id]._resetValidationErrors(formElement, validationParams);
+    formValidators[formElement.id].resetValidationErrors(formElement, validationParams);
     togglePopup(popup);
 }
-
 
 function showPopupNewPlace() {
     nameInputNewPlace.value = "";
     lincInputNewPlace.value = "";
-    formValidators[formElementNewPlace.id]._resetValidationErrors(formElementNewPlace, validationParams);
+    formValidators[formElementNewPlace.id].resetValidationErrors(formElementNewPlace, validationParams);
     togglePopup(popupNewPlace);
 }
 

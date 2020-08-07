@@ -64,7 +64,7 @@ class FormValidator {
         });
     }
 
-    _resetValidationErrors(formElement, params) {
+    resetValidationErrors(formElement, params) {
         const inputList = Array.from(this._form.querySelectorAll(params.inputSelector));
         const buttonElement = formElement.querySelector(params.submitButtonSelector);
     
