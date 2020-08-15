@@ -1,5 +1,4 @@
 import { openImgPopup } from "./index.js";
-
 export class Card {
     
     constructor (rawCardData, templateSelector) {
