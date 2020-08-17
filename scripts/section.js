@@ -1,14 +1,16 @@
+import { cardsContainer } from './constants.js';
+
 export default class Section {
     constructor ({items, renderer}, cardsContainer) {
-        this._renderItems = items;
+        this._items = items;
         this._renderer = renderer;
         this._cardsContainer = document.querySelector(cardsContainer);
     }
 
-    _renderItems() {
-        this._renderItems.forEach(item => {
-            this._renderer(item)
-        });
+    renderAll() {
+        this._items.forEach(card => {
+            cardsContainer.prepend(this._renderer(card));
+        }); 
     }
 
     addItem(CardElement) {

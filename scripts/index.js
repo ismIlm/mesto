@@ -26,6 +26,7 @@ import {
 } from './constants.js';
 
 import { FormValidator } from './formValidator.js';
+import Section from './section.js';
 
 const closePopupHandler = (evt, popup) => {
     if (evt.target.classList.contains('popup')) {
@@ -105,13 +106,6 @@ function newPlaceFormSubmitHandler(evt) {
     formElementNewPlace.reset();
 }
 
-function addCards(cards) {
-    cards.forEach(card => {
-        const aCard = new Card(card, "#card-template");
-        cardsContainer.prepend(aCard.getHtmlNode());
-    }); 
-}
-
 let formValidators = {};
 
 const enableValidation = (params) => {
@@ -123,6 +117,12 @@ const enableValidation = (params) => {
         formValidators[formElement.id] = formValidator;
     });
 };
+
+function CardRenderer(cardData, cardSelector) {
+    const aCard = new Card(cardData, "#card-template");
+    return aCard.getHtmlNode();
+};
+
 
 enableValidation(validationParams);
     
@@ -136,7 +136,9 @@ closeBtnNewPlace.addEventListener('click', () => togglePopup(popupNewPlace));
 closeBtnImg.addEventListener('click', () => togglePopup(popupImg));
 formElement.addEventListener('submit', bioFormSubmitHandler);
 formElementNewPlace.addEventListener('submit', newPlaceFormSubmitHandler);
-addCards(cards);
+
+const aSection = new Section({items: cards, renderer: CardRenderer}, '.card-container');
+aSection.renderAll();
 
 export {
     openImgPopup,
