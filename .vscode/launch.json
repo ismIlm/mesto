@@ -12,6 +12,7 @@
             "postDebugTask": "StopServer",
             "port": 9222,
             "url": "http://localhost:5500/index.html",
+            "runtimeExecutable": "/Users/bearstock/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
         }
     ]
 }
