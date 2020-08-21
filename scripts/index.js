@@ -140,9 +140,9 @@ formElementNewPlace.addEventListener('submit', newPlaceFormSubmitHandler);
 
 // Image popup
 const aPopupImage = new PopupWithImage(popupImgSelector);
-popupImg.addEventListener('click', () => aPopupImage.close());
-closeBtnImg.addEventListener('click', () => aPopupImage.close());
-
+/* popupImg.addEventListener('click', () => aPopupImage.close());
+closeBtnImg.addEventListener('click', () => aPopupImage.close()); */
+aPopupImage.setEventListeners();
 
 const aSection = new Section({items: cards, renderer: cardRenderer}, '.card-container');
 aSection.renderAll();
