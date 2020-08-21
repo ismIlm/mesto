@@ -17,11 +17,6 @@ export const formElementNewPlace = popupNewPlace.querySelector('.popup__containe
 export const nameInputNewPlace = popupNewPlace.querySelector('.popup__text_type_name');
 export const lincInputNewPlace = popupNewPlace.querySelector('.popup__text_type_job');
 
-export const popupImg = document.querySelector(".popup_img"); // deprecated
-export const closeBtnImg = popupImg.querySelector(".popup__btn-close"); // deprecated
-export const popupImgSelector = ".popup_img";
-
-
 export const cardsContainer = document.querySelector('.card-container');
 export const cardTemplate = document.querySelector('#card-template').content;
 export const cardImage = document.querySelector('.card__image');

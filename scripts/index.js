@@ -3,12 +3,10 @@ import { cards } from './initial-cards.js';
 import { 
     popupEditProfile,
     popupNewPlace,
-    popupImg,
     editFormButton,
     addFormButton,
     closeBtn,
     closeBtnNewPlace,
-    closeBtnImg,
     formElement,
     formElementNewPlace,
     cardsContainer,
@@ -21,12 +19,13 @@ import {
     nameInput,
     nameInputNewPlace,
     allPopups,
-    popupImgSelector,
 } from './constants.js';
 
 import { FormValidator } from './formValidator.js';
 import Section from './section.js';
 import PopupWithImage from './popupWithImage.js';
+
+const popupImgSelector = ".popup_img";
 
 const closePopupHandler = (evt, popup) => {
     if (evt.target.classList.contains('popup')) {
