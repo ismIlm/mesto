@@ -13,15 +13,21 @@ import { FormValidator } from './formValidator.js';
 import Section from './section.js';
 import PopupWithImage from './popupWithImage.js';
 import PopupWithForm from './popupWithForm.js';
+import UserInfo from './userinfo.js';
 
 const popupImgSelector = ".popup_img";
 const popupBioSelector = ".popup";
 const popupNewPlaceSelector = ".popup_new_place";
+const nameSelector = ".profile__title";
+const jobSelector = ".profile__subtitle";
+
+const aUserInfo = new UserInfo({ nameSelector, jobSelector});
 
 function bioFormSubmitHandler(evt, data) {
     evt.preventDefault();
-    profileTitle.textContent = data["name-input"];
-    profileSubtitle.textContent = data["job-input"];
+    const name = data["name-input"];
+    const job = data["job-input"];
+    aUserInfo.setUserInfo({ name, job });
 }
 
 function newPlaceFormSubmitHandler(evt, data) {
@@ -56,9 +62,10 @@ enableValidation(validationParams);
 
 // Edit bio popup
 const bioInitialValues = () => {
+    const { name, job } = aUserInfo.getUserInfo();
     return {
-        fieldOne: profileTitle.textContent,
-        fieldTwo: profileSubtitle.textContent,
+        fieldOne: name,
+        fieldTwo: job,
     }
 };
 const aBioPopup = new PopupWithForm(popupBioSelector, bioFormSubmitHandler, bioInitialValues);
