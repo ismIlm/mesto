@@ -28,12 +28,7 @@ import PopupWithForm from './popupWithForm.js';
 
 const popupImgSelector = ".popup_img";
 const popupBioSelector = ".popup";
-
-const closePopupHandler = (evt, popup) => {
-    if (evt.target.classList.contains('popup')) {
-        togglePopup(popup);
-    }
-};
+const popupNewPlaceSelector = ".popup_new_place";
 
 const popupIsOpened = (popupElement) => {
     return popupElement.classList.contains('popup_opened');
@@ -66,51 +61,23 @@ function togglePopup(localPopup) {
     localPopup.classList.toggle('popup_opened');
 }
 
-/* function showPopupBio(fullName, info) {
-    nameInput.value = fullName;
-    infoInput.value = info;
-    formValidators[formElement.id].toggleButtonStateWithForm(formElement, bioPopupBtn);
-    formValidators[formElement.id].resetValidationErrors(formElement, validationParams);
-    togglePopup(popupEditProfile);
-} */
 
-function showPopupNewPlace() {
-    nameInputNewPlace.value = "";
-    lincInputNewPlace.value = "";
-    formValidators[formElementNewPlace.id].resetValidationErrors(formElementNewPlace, validationParams);
-    togglePopup(popupNewPlace);
-}
-
-/* function openImgPopup(evt) {
-    popupBigImage.src = evt.target.src;
-    popupBigImage.alt = evt.target.alt;
-    popupFigcaption.textContent = evt.target.alt;
-    togglePopup(popupImg);
-} */
-
-/* function bioFormSubmitHandler(evt) {
-    evt.preventDefault();
-    profileTitle.textContent = nameInput.value;
-    profileSubtitle.textContent = infoInput.value;
-    togglePopup(popupEditProfile);
-} */
 function bioFormSubmitHandler(evt, data) {
     evt.preventDefault();
     profileTitle.textContent = data["name-input"];
     profileSubtitle.textContent = data["job-input"];
 }
 
-function newPlaceFormSubmitHandler(evt) {
+function newPlaceFormSubmitHandler(evt, data) {
     evt.preventDefault();
     const newCardData = {
-        name: nameInputNewPlace.value,
-        link: lincInputNewPlace.value,
+        name: data["title-input"],
+        link: data["link-input"],
     };
-    togglePopup(popupNewPlace);
     const aCard = new Card(newCardData, "#card-template");
     cardsContainer.prepend(aCard.getHtmlNode());
-    formElementNewPlace.reset();
 }
+
 
 let formValidators = {};
 
@@ -133,10 +100,6 @@ function cardRenderer(cardData, cardSelector) {
 enableValidation(validationParams);
 
 // Edit bio popup
-/* editFormButton.addEventListener('click', () => showPopupBio(profileTitle.textContent, profileSubtitle.textContent));
-popupEditProfile.addEventListener('click', (evt) => closePopupHandler(evt, popupEditProfile));
-closeBtn.addEventListener('click', () => togglePopup(popupEditProfile));
-formElement.addEventListener('submit', bioFormSubmitHandler); */
 const bioInitialValues = () => {
     return {
         fieldOne: profileTitle.textContent,
@@ -148,15 +111,20 @@ aBioPopup.setEventListeners();
 editFormButton.addEventListener('click', () => aBioPopup.open());
 
 // Add new place popup
-addFormButton.addEventListener('click', () => showPopupNewPlace());
-popupNewPlace.addEventListener('click', (evt) => closePopupHandler(evt, popupNewPlace));
-closeBtnNewPlace.addEventListener('click', () => togglePopup(popupNewPlace));
-formElementNewPlace.addEventListener('submit', newPlaceFormSubmitHandler);
+const newPlaceInitialValues = () => {
+    return {
+        fieldOne: "",
+        fieldTwo: "",
+    }
+};
+const aNewPlacePopup = new PopupWithForm(popupNewPlaceSelector, newPlaceFormSubmitHandler, newPlaceInitialValues);
+aNewPlacePopup.setEventListeners();
+addFormButton.addEventListener('click', () => aNewPlacePopup.open());
+
+
 
 // Image popup
 const aPopupImage = new PopupWithImage(popupImgSelector);
-/* popupImg.addEventListener('click', () => aPopupImage.close());
-closeBtnImg.addEventListener('click', () => aPopupImage.close()); */
 aPopupImage.setEventListeners();
 
 const aSection = new Section({items: cards, renderer: cardRenderer}, '.card-container');
