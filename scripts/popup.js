@@ -54,13 +54,12 @@ export default class Popup {
         this._popupEscButton.removeEventListener('click', this.close); */
     }
 
-    _handleEscClose(evt) {
-        /* 
+    /* _handleEscClose(evt) {
         evt.preventDefault();
         if (evt.key === 'Escape') {
             this.close();
-        }  */
-    }
+        }
+    } */
 
     /* _handleOverlayClose(evt) {
         if (evt.target !== this._popupElement) {return}
