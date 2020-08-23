@@ -23,6 +23,8 @@ const jobSelector = ".profile__subtitle";
 
 const aUserInfo = new UserInfo({ nameSelector, jobSelector});
 
+const aPopupImage = new PopupWithImage(popupImgSelector);
+
 function bioFormSubmitHandler(evt, data) {
     evt.preventDefault();
     const name = data["name-input"];
@@ -30,13 +32,15 @@ function bioFormSubmitHandler(evt, data) {
     aUserInfo.setUserInfo({ name, job });
 }
 
+const cardClickCallback = (evt) => aPopupImage.open(evt);
+
 function newPlaceFormSubmitHandler(evt, data) {
     evt.preventDefault();
     const newCardData = {
         name: data["title-input"],
         link: data["link-input"],
     };
-    const aCard = new Card(newCardData, "#card-template");
+    const aCard = new Card(newCardData, "#card-template", cardClickCallback);
     cardsContainer.prepend(aCard.getHtmlNode());
 }
 
@@ -53,7 +57,7 @@ const enableValidation = (params) => {
 };
 
 function cardRenderer(cardData, cardSelector) {
-    const aCard = new Card(cardData, "#card-template");
+    const aCard = new Card(cardData, "#card-template", cardClickCallback);
     return aCard.getHtmlNode();
 };
 
@@ -86,7 +90,6 @@ addFormButton.addEventListener('click', () => aNewPlacePopup.open());
 
 
 // Image popup
-const aPopupImage = new PopupWithImage(popupImgSelector);
 aPopupImage.setEventListeners();
 
 const aSection = new Section({items: cards, renderer: cardRenderer}, '.card-container');

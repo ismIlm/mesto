@@ -1,10 +1,11 @@
 import { aPopupImage } from "./index.js";
 export class Card {
     
-    constructor (rawCardData, templateSelector) {
+    constructor (rawCardData, templateSelector, cardClickCallback) {
         this._name = rawCardData.name;
         this._link = rawCardData.link;
         this._cardTemplate = document.querySelector(templateSelector).content;
+        this._cardClickCallback = cardClickCallback;
 
         this._createCard();
     }
@@ -19,7 +20,7 @@ export class Card {
         this._cardElement.querySelector('.card__remove-button').addEventListener("click", this._removeCard);
         this._cardElement.querySelector('.card__like').addEventListener("click", this._likeCard);
         //elementImg.addEventListener("click", openImgPopup);
-        elementImg.addEventListener("click", (evt) => aPopupImage.open(evt));
+        elementImg.addEventListener("click", this._cardClickCallback);
     }
 
 
