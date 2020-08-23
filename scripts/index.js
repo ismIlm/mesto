@@ -24,8 +24,10 @@ import {
 import { FormValidator } from './formValidator.js';
 import Section from './section.js';
 import PopupWithImage from './popupWithImage.js';
+import PopupWithForm from './popupWithForm.js';
 
 const popupImgSelector = ".popup_img";
+const popupBioSelector = ".popup";
 
 const closePopupHandler = (evt, popup) => {
     if (evt.target.classList.contains('popup')) {
@@ -64,13 +66,13 @@ function togglePopup(localPopup) {
     localPopup.classList.toggle('popup_opened');
 }
 
-function showPopupBio(fullName, info) {
+/* function showPopupBio(fullName, info) {
     nameInput.value = fullName;
     infoInput.value = info;
     formValidators[formElement.id].toggleButtonStateWithForm(formElement, bioPopupBtn);
     formValidators[formElement.id].resetValidationErrors(formElement, validationParams);
     togglePopup(popupEditProfile);
-}
+} */
 
 function showPopupNewPlace() {
     nameInputNewPlace.value = "";
@@ -86,11 +88,16 @@ function showPopupNewPlace() {
     togglePopup(popupImg);
 } */
 
-function bioFormSubmitHandler(evt) {
+/* function bioFormSubmitHandler(evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = infoInput.value;
     togglePopup(popupEditProfile);
+} */
+function bioFormSubmitHandler(evt, data) {
+    evt.preventDefault();
+    profileTitle.textContent = data["name-input"];
+    profileSubtitle.textContent = data["job-input"];
 }
 
 function newPlaceFormSubmitHandler(evt) {
@@ -126,10 +133,19 @@ function cardRenderer(cardData, cardSelector) {
 enableValidation(validationParams);
 
 // Edit bio popup
-editFormButton.addEventListener('click', () => showPopupBio(profileTitle.textContent, profileSubtitle.textContent));
+/* editFormButton.addEventListener('click', () => showPopupBio(profileTitle.textContent, profileSubtitle.textContent));
 popupEditProfile.addEventListener('click', (evt) => closePopupHandler(evt, popupEditProfile));
 closeBtn.addEventListener('click', () => togglePopup(popupEditProfile));
-formElement.addEventListener('submit', bioFormSubmitHandler);
+formElement.addEventListener('submit', bioFormSubmitHandler); */
+const bioInitialValues = () => {
+    return {
+        fieldOne: profileTitle.textContent,
+        fieldTwo: profileSubtitle.textContent,
+    }
+};
+const aBioPopup = new PopupWithForm(popupBioSelector, bioFormSubmitHandler, bioInitialValues);
+aBioPopup.setEventListeners();
+editFormButton.addEventListener('click', () => aBioPopup.open());
 
 // Add new place popup
 addFormButton.addEventListener('click', () => showPopupNewPlace());
@@ -149,4 +165,5 @@ aSection.renderAll();
 
 export {
     aPopupImage,
+    formValidators,
 };

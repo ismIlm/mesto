@@ -12,7 +12,7 @@ export default class PopupWithImage extends Popup {
         this._popupBigImage.src = evt.target.src;
         this._popupBigImage.alt = evt.target.alt;
         this._popupFigcaption.textContent = evt.target.alt;
-        this._togglePopup();  
+        super.open();
     }
     
     setEventListeners() {

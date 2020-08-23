@@ -36,7 +36,9 @@ export default class Popup {
     }
 
     open() {
-/*         this._togglePopup();
+        this._togglePopup();  
+
+        /* this._togglePopup();
         this._popupElement.addEventListener('keyup', this._handleEscClose);
         this._popupEscButton.addEventListener('click', this.close); */
     }
