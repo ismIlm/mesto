@@ -19,5 +19,5 @@ Mesto
 Реализована функция открытия картинки.
 
 ### Ссылка на GitHub Pages:
-https://ismilm.github.io/mesto/dist/index.html
+https://ismilm.github.io/mesto/index.html
 
