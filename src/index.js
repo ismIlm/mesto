@@ -1,3 +1,5 @@
+import '../pages/index.css'; // добавьте импорт главного файла стилей
+
 import { Card } from './card.js';
 import { cards } from './initial-cards.js';
 import { 
@@ -86,8 +88,6 @@ const newPlaceInitialValues = () => {
 const aNewPlacePopup = new PopupWithForm(popupNewPlaceSelector, newPlaceFormSubmitHandler, newPlaceInitialValues);
 aNewPlacePopup.setEventListeners();
 addFormButton.addEventListener('click', () => aNewPlacePopup.open());
-
-
 
 // Image popup
 aPopupImage.setEventListeners();
