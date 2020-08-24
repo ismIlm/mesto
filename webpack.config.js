@@ -39,7 +39,15 @@ module.exports = {
                 test: /\.css$/,
                 // при обработке этих файлов нужно использовать
                 // MiniCssExtractPlugin.loader и css-loader
-                loader: [MiniCssExtractPlugin.loader, 'css-loader']
+                loader: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: 'css-loader',
+                        // добавьте объект options
+                        options: { importLoaders: 1 }
+                    },
+                    'postcss-loader'
+                ]
             }
         ]
     },
