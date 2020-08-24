@@ -14,9 +14,4 @@ export default class PopupWithImage extends Popup {
         this._popupFigcaption.textContent = evt.target.alt;
         super.open();
     }
-    
-    setEventListeners() {
-        super.setEventListeners();
-        this._popupBigImage.addEventListener('click', (evt) => this.close(evt));
-    }
 }
