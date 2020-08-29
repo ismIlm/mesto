@@ -34,7 +34,7 @@ function bioFormSubmitHandler(evt, data) {
     aUserInfo.setUserInfo({ name, job });
 }
 
-const cardClickCallback = (evt) => aPopupImage.open(evt);
+const cardClickCallback = (name, link) => aPopupImage.open(name, link);
 
 function newPlaceFormSubmitHandler(evt, data) {
     evt.preventDefault();

@@ -7,7 +7,6 @@ export class Card {
         this._cardTemplate = document.querySelector(templateSelector).content;
         this._cardClickCallback = cardClickCallback;
 
-        this._createCard();
     }
 
     _createCard() {
@@ -20,11 +19,14 @@ export class Card {
         this._cardElement.querySelector('.card__remove-button').addEventListener("click", this._removeCard);
         this._cardElement.querySelector('.card__like').addEventListener("click", this._likeCard);
         //elementImg.addEventListener("click", openImgPopup);
-        elementImg.addEventListener("click", this._cardClickCallback);
+        elementImg.addEventListener("click", () => this._cardClickCallback(this._name, this._link));
     }
 
 
     getHtmlNode() {
+        if (!this._cardElement) {
+            this._createCard();
+        }
         return this._cardElement;
     }
 
