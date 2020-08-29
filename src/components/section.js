@@ -1,4 +1,4 @@
-import { cardsContainer } from './constants.js';
+import { cardsContainer } from '../utils/constants.js';
 
 export default class Section {
     constructor ({items, renderer}, cardsContainer) {

@@ -1,7 +1,7 @@
-import '../pages/index.css'; // добавьте импорт главного файла стилей
+import './index.css'; // добавьте импорт главного файла стилей
 
-import { Card } from './card.js';
-import { cards } from './initial-cards.js';
+import { Card } from '../components/card.js';
+import { cards } from '../utils/initial-cards.js';
 import { 
     editFormButton,
     addFormButton,
@@ -9,13 +9,13 @@ import {
     profileTitle,
     profileSubtitle,
     validationParams,
-} from './constants.js';
+} from '../utils/constants.js';
 
-import { FormValidator } from './formValidator.js';
-import Section from './section.js';
-import PopupWithImage from './popupWithImage.js';
-import PopupWithForm from './popupWithForm.js';
-import UserInfo from './userinfo.js';
+import { FormValidator } from '../components/formValidator.js';
+import Section from '../components/section.js';
+import PopupWithImage from '../components/popupWithImage.js';
+import PopupWithForm from '../components/popupWithForm.js';
+import UserInfo from '../components/userinfo.js';
 
 const popupImgSelector = ".popup_img";
 const popupBioSelector = ".popup";

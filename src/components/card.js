@@ -1,4 +1,3 @@
-import { aPopupImage } from "./index.js";
 export class Card {
     
     constructor (rawCardData, templateSelector, cardClickCallback) {

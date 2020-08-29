@@ -1,6 +1,6 @@
 import Popup from './popup.js';
-import { formValidators } from './index.js';
-import { validationParams } from './constants.js';
+import { formValidators } from '../pages/index.js';
+import { validationParams } from '../utils/constants.js';
 
 const fieldOneSelector = ".popup__text_type_name";
 const fieldTwoSelector = ".popup__text_type_job";
