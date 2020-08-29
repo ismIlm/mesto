@@ -6,7 +6,7 @@ export default class Popup {
 
     _popupIsOpened() {
         return this._popupElement.classList.contains('popup_opened');
-    };
+    }
 
     _handleEscClose(evt) {
         evt.preventDefault();
@@ -16,7 +16,7 @@ export default class Popup {
                 this._togglePopup();
             }
         }
-    };
+    }
 
     _addPopupEscListener() {
         document.addEventListener('keyup', (evt) => this._handleEscClose(evt));
