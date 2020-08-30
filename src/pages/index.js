@@ -36,16 +36,6 @@ function bioFormSubmitHandler(evt, data) {
 
 const cardClickCallback = (name, link) => aPopupImage.open(name, link);
 
-function newPlaceFormSubmitHandler(evt, data) {
-    evt.preventDefault();
-    const newCardData = {
-        name: data["title-input"],
-        link: data["link-input"],
-    };
-    const aCard = new Card(newCardData, "#card-template", cardClickCallback);
-    cardsContainer.prepend(aCard.getHtmlNode());
-}
-
 let formValidators = {};
 
 const enableValidation = (params) => {
@@ -85,16 +75,27 @@ const newPlaceInitialValues = () => {
         fieldTwo: "",
     }
 };
+
+const aSection = new Section({items: cards, renderer: cardRenderer}, '.card-container');
+aSection.renderAll();
+
+function newPlaceFormSubmitHandler(evt, data) {
+    evt.preventDefault();
+    const newCardData = {
+        name: data["title-input"],
+        link: data["link-input"],
+    };
+    const aCard = new Card(newCardData, "#card-template", cardClickCallback);
+    aSection.addItem(aCard.getHtmlNode());
+    //cardsContainer.prepend(aCard.getHtmlNode());
+}
+
 const aNewPlacePopup = new PopupWithForm(popupNewPlaceSelector, newPlaceFormSubmitHandler, newPlaceInitialValues);
 aNewPlacePopup.setEventListeners();
 addFormButton.addEventListener('click', () => aNewPlacePopup.open());
 
 // Image popup
 aPopupImage.setEventListeners();
-
-const aSection = new Section({items: cards, renderer: cardRenderer}, '.card-container');
-aSection.renderAll();
-
 
 export {
     aPopupImage,
