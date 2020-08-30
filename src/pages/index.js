@@ -49,7 +49,7 @@ const enableValidation = (params) => {
 
 function cardRenderer(cardData, cardSelector) {
     const aCard = new Card(cardData, "#card-template", cardClickCallback);
-    return aCard.getHtmlNode();
+    aSection.addItem(aCard.getHtmlNode());
 }
 
 
