@@ -66,7 +66,11 @@ const bioInitialValues = () => {
 };
 const aBioPopup = new PopupWithForm(popupBioSelector, bioFormSubmitHandler, bioInitialValues);
 aBioPopup.setEventListeners();
-editFormButton.addEventListener('click', () => aBioPopup.open());
+editFormButton.addEventListener('click', () => {
+    formValidators[aBioPopup.formElement.id].toggleButtonStateWithForm(aBioPopup.formElement, aBioPopup.formButton);
+    formValidators[aBioPopup.formElement.id].resetValidationErrors(aBioPopup.formElement, validationParams);
+    aBioPopup.open();
+});
 
 // Add new place popup
 const newPlaceInitialValues = () => {
@@ -92,7 +96,11 @@ function newPlaceFormSubmitHandler(evt, data) {
 
 const aNewPlacePopup = new PopupWithForm(popupNewPlaceSelector, newPlaceFormSubmitHandler, newPlaceInitialValues);
 aNewPlacePopup.setEventListeners();
-addFormButton.addEventListener('click', () => aNewPlacePopup.open());
+addFormButton.addEventListener('click', () => {
+    formValidators[aNewPlacePopup.formElement.id].toggleButtonStateWithForm(aNewPlacePopup.formElement, aNewPlacePopup.formButton);
+    formValidators[aNewPlacePopup.formElement.id].resetValidationErrors(aNewPlacePopup.formElement, validationParams);
+    aNewPlacePopup.open();
+});
 
 // Image popup
 aPopupImage.setEventListeners();

@@ -14,8 +14,8 @@ export default class PopupWithForm extends Popup {
         this._formCallback = formCallback;
         this._initialValuesCallback = initialValuesCallback;
 
-        this._formElement = this._popupElement.querySelector(formSelector);
-        this._formButton = this._popupElement.querySelector(formSubmitButtonSelector);
+        this.formElement = this._popupElement.querySelector(formSelector);
+        this.formButton = this._popupElement.querySelector(formSubmitButtonSelector);
         this._fieldOneElement = this._popupElement.querySelector(fieldOneSelector);
         this._fieldTwoElement = this._popupElement.querySelector(fieldTwoSelector);
     }
@@ -24,8 +24,8 @@ export default class PopupWithForm extends Popup {
         const initValues = this._initialValuesCallback();
         this._fieldOneElement.value = initValues.fieldOne;
         this._fieldTwoElement.value = initValues.fieldTwo;
-        formValidators[this._formElement.id].toggleButtonStateWithForm(this._formElement, this._formButton);
-        formValidators[this._formElement.id].resetValidationErrors(this._formElement, validationParams);
+        /* formValidators[this.formElement.id].toggleButtonStateWithForm(this.formElement, this.formButton);
+        formValidators[this.formElement.id].resetValidationErrors(this.formElement, validationParams); */
         super.open();
     }
 
@@ -51,6 +51,6 @@ export default class PopupWithForm extends Popup {
 
     close(evt) {
         super.close(evt);
-        this._formElement.reset();
+        this.formElement.reset();
     }
 }
