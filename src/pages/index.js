@@ -27,8 +27,7 @@ const aUserInfo = new UserInfo({ nameSelector, jobSelector});
 
 const aPopupImage = new PopupWithImage(popupImgSelector);
 
-function bioFormSubmitHandler(evt, data) {
-    evt.preventDefault();
+function bioFormSubmitHandler(data) {
     const name = data["name-input"];
     const job = data["job-input"];
     aUserInfo.setUserInfo({ name, job });
@@ -83,8 +82,7 @@ const newPlaceInitialValues = () => {
 const aSection = new Section({items: cards, renderer: cardRenderer}, '.card-container');
 aSection.renderAll();
 
-function newPlaceFormSubmitHandler(evt, data) {
-    evt.preventDefault();
+function newPlaceFormSubmitHandler(data) {
     const newCardData = {
         name: data["title-input"],
         link: data["link-input"],

@@ -44,7 +44,7 @@ export default class PopupWithForm extends Popup {
             evt.preventDefault();
             const data = this._getInputValues();
             console.log(data);
-            this._formCallback(evt, data);
+            this._formCallback(data);
             this.close(evt);
         });
     }
