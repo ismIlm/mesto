@@ -9,6 +9,10 @@ import {
     profileTitle,
     profileSubtitle,
     validationParams,
+    nameInput,
+    infoInput,
+    nameInputNewPlace,
+    lincInputNewPlace,
 } from '../utils/constants.js';
 
 import { FormValidator } from '../components/formValidator.js';
@@ -58,10 +62,9 @@ enableValidation(validationParams);
 // Edit bio popup
 const bioInitialValues = () => {
     const { name, job } = aUserInfo.getUserInfo();
-    return {
-        fieldOne: name,
-        fieldTwo: job,
-    }
+
+    nameInput.value = name;
+    infoInput.value = job;
 };
 const aBioPopup = new PopupWithForm(popupBioSelector, bioFormSubmitHandler, bioInitialValues);
 aBioPopup.setEventListeners();
@@ -73,10 +76,8 @@ editFormButton.addEventListener('click', () => {
 
 // Add new place popup
 const newPlaceInitialValues = () => {
-    return {
-        fieldOne: "",
-        fieldTwo: "",
-    }
+    nameInputNewPlace.value = "";
+    lincInputNewPlace.value = "";
 };
 
 const aSection = new Section({items: cards, renderer: cardRenderer}, '.card-container');

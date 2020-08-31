@@ -21,11 +21,7 @@ export default class PopupWithForm extends Popup {
     }
 
     open() {
-        const initValues = this._initialValuesCallback();
-        this._fieldOneElement.value = initValues.fieldOne;
-        this._fieldTwoElement.value = initValues.fieldTwo;
-        /* formValidators[this.formElement.id].toggleButtonStateWithForm(this.formElement, this.formButton);
-        formValidators[this.formElement.id].resetValidationErrors(this.formElement, validationParams); */
+        this._initialValuesCallback();
         super.open();
     }
 
