@@ -66,9 +66,9 @@ const bioInitialValues = () => {
 const aBioPopup = new PopupWithForm(popupBioSelector, bioFormSubmitHandler, bioInitialValues);
 aBioPopup.setEventListeners();
 editFormButton.addEventListener('click', () => {
+    aBioPopup.open();
     formValidators[aBioPopup.formElement.id].toggleButtonStateWithForm(aBioPopup.formElement, aBioPopup.formButton);
     formValidators[aBioPopup.formElement.id].resetValidationErrors(aBioPopup.formElement, validationParams);
-    aBioPopup.open();
 });
 
 // Add new place popup
@@ -95,9 +95,9 @@ function newPlaceFormSubmitHandler(data) {
 const aNewPlacePopup = new PopupWithForm(popupNewPlaceSelector, newPlaceFormSubmitHandler, newPlaceInitialValues);
 aNewPlacePopup.setEventListeners();
 addFormButton.addEventListener('click', () => {
+    aNewPlacePopup.open();
     formValidators[aNewPlacePopup.formElement.id].toggleButtonStateWithForm(aNewPlacePopup.formElement, aNewPlacePopup.formButton);
     formValidators[aNewPlacePopup.formElement.id].resetValidationErrors(aNewPlacePopup.formElement, validationParams);
-    aNewPlacePopup.open();
 });
 
 // Image popup
